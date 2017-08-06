@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1430243234 source:/home/torben/Desktop/Development/C-training/Fitbit-coding-interview/find-min-max-from-max-ascend-over-the-day.c
+	<stdio.h>
+	"testdata/testdata.h"
+
+1430243630 /home/torben/Desktop/Development/C-training/Fitbit-coding-interview/testdata/testdata.h
+

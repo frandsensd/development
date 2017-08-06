@@ -1,0 +1,19 @@
+#!/bin/bash
+
+./12bitBin2TextUtil ../dataset/test1.bin ../dataset/test1.txt
+diff --strip-trailing-cr ../dataset/test1.out ../dataset/test1.txt
+
+./12bitBin2TextUtil ../dataset/test2.bin ../dataset/test2.txt
+diff --strip-trailing-cr ../dataset/test2.out ../dataset/test2.txt
+
+./12bitBin2TextUtil ../dataset/test3.bin ../dataset/test3.txt
+diff --strip-trailing-cr ../dataset/test3.out ../dataset/test3.txt
+
+./12bitBin2TextUtil ../dataset/test4.bin ../dataset/test4.txt
+diff --strip-trailing-cr ../dataset/test4.out ../dataset/test4.txt
+
+./12bitBin2TextUtil ../dataset/test5.bin ../dataset/test5.txt
+diff --strip-trailing-cr ../dataset/test5.out ../dataset/test5.txt
+
+
+

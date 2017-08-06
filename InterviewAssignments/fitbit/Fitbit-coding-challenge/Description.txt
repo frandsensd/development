@@ -1,0 +1,31 @@
+Hi Torben,
+ 
+After speaking with the team in San Diego,  We’d love to have you take part in the next step of the process here at Fitbit! Here is the coding challenge. It gives you a really good idea of the environment we work in and the challenges we work with. We recently revamped the project so we would love to hear your feedback afterwards. Please do let us know how long it took you, if there is enough information in the back-story, was it a fun and challenging problem to solve? Any insight on your end is very much appreciated!  See directions below.
+ 
+¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬
+ 
+At Fitbit we spend a lot of time dealing with 12 bit accelerometer data.  The data is collected, buffered, and sometimes grouped to aid our various algorithms for steps, distance, calories, sleep, etc.
+ 
+As a skills based coding exercise we would like you to do the following:
+ 
+Write an ANSI C program which takes as arguments the name of a binary input file and a text output file.  The binary input file will contain 12 bit unsigned values.  The output file should contain the 32 largest values from the input file.  It should also contain the last 32 values read from the input file.  Try to write the portions of the code that are not related to IO if you would port it to a memory and speed limited device.  Attached you will find three sample input (.bin) and output (.out) files which you can use for testing.  
+ 
+Notes:
+1. If there are an odd number of 12bit readings in the file, then the last nibble in the file will be zero and can be ignored.
+2. The file format should be as follows
+   - Start with “--Sorted Max 32 Values--"
+   - The 32 largest values in the file, one value per line.  Duplicates are allowed if a large value appears multiple times.  The list should be sorted smallest to largest.
+   - Output “--Last 32 Values--" on its own line
+   - The last 32 values read, one per line.    They should appear in the order they were read.  The last value read from the file will appear last.
+3. If there are fewer than 32 values in the file then whatever is read should be output
+4. Your output files should match the output files provided with the given input. 
+5. If your program is passed bogus values, it should not core dump.
+6. test#.bin is the binary file that corresponds with test#.out   Three test inputs and outputs have been provided.
+7. Bonus point for providing a make file or some other build script.
+8. Please provide comments in the top of your code describing design decisions / tradeoffs and  if you did any optimizations for speed, memory, etc.  Most of our projects are on MCUs with limited memory powered by a small battery.  Optimizations are not required but a good way to show off IF they work :)
+ 
+If you have any questions, please let us know.  We also welcome any feedback you might have on the questions, the way it is worded etc.  Our goal is to make interviews fun and interesting and a way for us to find people with whom we can enjoy conquering hard problems.
+
+Best,
+
+Mallory
