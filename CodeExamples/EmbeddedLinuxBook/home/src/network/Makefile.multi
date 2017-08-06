@@ -1,0 +1,37 @@
+#
+#  Makefile for network client/server examples with multiple clients
+#
+#   make netthermo  -- build thermostat server for workstation
+#   make netthermo SERVER=REMOTE  -- build thermostat server for target
+
+CFLAGS = -g -O0 -Wall -DPORT=4201
+CC_ARM := arm-linux-gcc
+INC_ARM := ../../include
+
+ifeq ($(SERVER), REMOTE)
+CFLAGS += -DSERVER=\"192.168.1.50\"
+netthermo: thermostat_t
+thermostat.o: thermostat.c driver.h thermostat.h		# compile for the ARM
+	$(CC_ARM) $(CFLAGS) -c -I$(INC_ARM) thermostat.c
+multimon.o : multimon.c driver.h thermostat.h
+	$(CC_ARM) $(CFLAGS) -c  -I$(INC_ARM) multimon.c
+    
+else
+CFLAGS += -DSERVER=\"127.0.0.1\"
+netthermo: thermostat_s
+thermostat.o: driver.h thermostat.h
+multimon.o: driver.h thermostat.h
+endif
+
+# Simulation and target versions of the networked thermostat.
+# Use the driver code in the measure directory and assume it's compiled.
+web: thermostatw
+
+thermostat_s: thermostat.o multimon.o ../measure/simdrive.o
+	$(CC) -o $@ $^ -lpthread
+
+thermostat_t: thermostat.o multimon.o ../measure/trgdrive.o
+	$(CC_ARM) -o $@ $^ -lpthread
+
+clean:
+	rm -f *.o *_s *_t *~ core

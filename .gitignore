@@ -30,3 +30,9 @@
 
 build
 raspi2raspi
+Components/ADC/MCP3008-Tests/MCP3008-Tests/Debug/
+Components/ADC/MCP3008-Tests/.vs/
+Components/ADC/ADCDriver/Debug/
+Components/ADC/MCP3008-Tests/Debug/
+Components/ADC/-----------/.vs/
+projects/tests/cpp-test-threads/cpp/vs/

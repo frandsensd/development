@@ -1,0 +1,384 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="MSSmartTagsPreventParsing" content="TRUE">
+    <META HTTP-EQUIV="Content-Language" CONTENT="en-GB">
+    <META NAME="keywords" CONTENT="Simtec Electronics,design,low power,ARM,7500,ARM7,ARM9,ARM10,Strongarm,XScale,RISC,licence,solution,Manufacture,software,asic,fpga,consulting,vhdl,linux,net bsd,risc os">
+    <META NAME="description" content="Simtec Electronics providers of ARM design,manufacture and software solutions">
+    <meta http-equiv="pics-label" content='(pics-1.1 "http://www.icra.org/ratingsv02.html" comment "ICRAonline v2.0" l gen true for "http://www.simtec.co.uk" r (nz 1 vz 1 lz 1 oz 1 cz 1) "http://www.rsac.org/ratingsv01.html" l gen true for "http://www.simtec.co.uk" r (n 0 s 0 v 0 l 0))'>
+    <link rel="stylesheet" href="/resources/simtec.css" type="text/css">
+    <script src="/resources/util.js" type="text/javascript" language="Javascript1.1"></script>
+    <script defer src="/resources/menu.js" type="text/javascript" language="Javascript1.1"></script>
+      <title>Simtec Electronics - AN0014 - Acessing General Purpose I/O from Linux</title>
+  </head>
+  <body BGCOLOR="white" TEXT="black">
+<div id="popmenu" class="menuskin" onMouseover="clearhidemenu();highlightmenu(event,'on')" onMouseout="highlightmenu(event,'off');dynamichide(event)"></div>
+  <table class="stc-top" border="0" cellspacing="0" cellpadding="0" width="100%" summary="">
+    <tr>
+      <td width="10"><img src="../../images/ltc.gif" width="10" height="10" border="0" alt=""></td>
+      <td><!-- top center --></td>
+      <td width="10"><img src="../../images/rtc.gif" width="10" height="10" border="0" alt=""></td>
+    </tr>
+    <tr>
+      <td><!-- left side --></td>
+      <td valign="middle">
+        <div>
+          <img src="../../images/logo.gif" align="left" width="123" height="30" border="0" alt="Simtec Electronics">
+	<!-- <img src="../../images/snowman.png" align="right" width="32" height="30" border="0" alt="Seasons greetings"> -->
+        </div>
+      </td>
+      <td class="stc-top"><!-- right side --></td>
+    </tr>
+    <tr>
+      <td><!-- left side --></td>
+      <td valign="middle">
+	<hr align="center" size="2">
+      </td>
+      <td class="stc-top"><!-- right side --></td>
+    </tr>
+    <tr>
+      <td class="stc-top"><!-- left side --></td>
+      <td class="stc-top">
+      <table border="0" cellspacing="0" cellpadding="0" summary="">
+        <tr>
+          <!-- <td class="stc-top" width="5%"></td> -->
+          <td class="stc-top" valign="middle" width="80%">
+            <table border="0" cellspacing="0" cellpadding="0" summary="">
+              <tr>
+	        <td class="stc-top" width="60">
+                  <a href="../../" onMouseOver="StcMenuIn(event,'home','../../images/home-roll.gif',linkset[0])" onMouseOut="StcMenuOut('home','../../images/home.gif')"><img src="../../images/home.gif" id="home" border="0" width="48" height="20" alt="Home"></a>
+              </td>
+              <td class="stc-top" width="85">
+                <a href="../../products/" onMouseOver="StcMenuIn(event,null,null,linkset[1])" onMouseOut="StcMenuOut(null,null)"><img src="../../images/products-sel2.gif" border="0" width="75" height="20" alt="Products"></a>
+            </td>
+            <td class="stc-top" width="80">
+              <a href="../../services/" onMouseOver="StcMenuIn(event,'services','../../images/services-roll.gif',linkset[2])" onMouseOut="StcMenuOut('services','../../images/services.gif')"><img src="../../images/services.gif" id="services" border="0" width="80" height="20" alt="Services"></a>
+          </td>
+          <td class="stc-top" width="80">
+            <a href="../../support/" onMouseOver="StcMenuIn(event,'support','../../images/support-roll.gif',linkset[3])" onMouseOut="StcMenuOut('support','../../images/support.gif')"><img src="../../images/support.gif" id="support" border="0" width="80" height="20" alt="Support"></a>
+        </td>
+        <td class="stc-top" width="80">
+          <a href="../../company/" onMouseOver="StcMenuIn(event,'company','../../images/company-roll.gif',linkset[4])" onMouseOut="StcMenuOut('company','../../images/company.gif')"><img src="../../images/company.gif" id="company" border="0" width="80" height="20" alt="Company"></a>
+      </td>
+    </tr>
+  </table>
+</td>
+<td class="stc-top" width="15%">
+  <form style="margin-top: 0; margin-bottom: 0;" method="post" action="/cgi-bin/perlfect/search/search.pl">
+  <input src="../../images/" type="hidden" name="p" value="1">
+  <input src="../../images/" type="hidden" name="lang" value="en">
+  <input src="../../images/" type="hidden" name="include" value="">
+  <input src="../../images/" type="hidden" name="exclude" value="">
+  <input src="../../images/" type="hidden" name="penalty" value="0">
+  <input src="../../images/" type="hidden" name="mode" value="any">
+  <table border="0" summary="">
+    <tr>
+      <td><img src="../../images/search.gif" border="0" width="58" height="20" alt="Search"></td>
+      <td><input src="../../images/" style="color: black; FONT-FAMILY: homerton; FONT-SIZE: 14px; HEIGHT: 20px; WIDTH: 79px" type="text" size="8" name="q" alt="Search text" value=""></td>
+      <td><input src="../../images/searchbtn.gif" type="image" alt="Go" value="Go"></td>
+    </tr>
+  </table>
+  </form><!-- IE 5 and 5.5 seem to insist on adding a break here which screws teh table formatting up :-/ -->
+</td>
+</tr>
+</table>
+      </td>
+      <td class="stc-top"><!-- right side --></td>
+    </tr>
+    <tr>
+      <td class="stc-top"></td>
+      <td class="stc-top"><!-- bottom center --></td>
+      <td class="stc-topc" width="10"><img src="../../images/rbc.gif" width="10" height="10" border="0" alt=""></td>
+    </tr>
+<!-- bottom row -->
+    <tr style="background-color:#ffffff">
+      <td width="10"><img src="../../images/lbc.gif" width="10" height="10" border="0" alt=""></td>
+      <td><!-- bottom center --></td>
+      <td></td>
+    </tr>
+  </table>
+  <!-- main page table with sidebar and text -->
+  <table border="0" cellspacing="0" cellpadding="0" summary="">
+    <!-- second table row contains the side bar and the page contents -->
+    <tr>
+      <td width="1" height="20" valign="top" class="sidevbar"><img src="../../images/vbar.gif" width="1" height="20" border="0" alt=""></td>
+      <td width="9"></td>
+      <td width="130" valign="top" class="sidebar">
+  <a href="../../products/systems.html" class="sidebar" onMouseOver="StcImgChange('productssystems','../../images/productssystems-roll.gif');" onMouseOut="StcImgChange('productssystems','../../images/productssystems.gif');"><img src="../../images/productssystems.gif" id="productssystems" border="0" width="120" height="20" alt="Evaluation Systems"></a>
+<br>
+  <a href="../../products/boards.html" class="sidebar" onMouseOver="StcImgChange('productsboards','../../images/productsboards-roll.gif');" onMouseOut="StcImgChange('productsboards','../../images/productsboards.gif');"><img src="../../images/productsboards.gif" id="productsboards" border="0" width="120" height="20" alt="Development Boards"></a>
+<br>
+  <a href="../../products/modules.html" class="sidebar" onMouseOver="StcImgChange('productsmodules','../../images/productsmodules-roll.gif');" onMouseOut="StcImgChange('productsmodules','../../images/productsmodules.gif');"><img src="../../images/productsmodules.gif" id="productsmodules" border="0" width="120" height="20" alt="Integrated Modules"></a>
+<br>
+  <a href="../../products/tools.html" class="sidebar" onMouseOver="StcImgChange('productstools','../../images/productstools-roll.gif');" onMouseOut="StcImgChange('productstools','../../images/productstools.gif');"><img src="../../images/productstools.gif" id="productstools" border="0" width="120" height="20" alt="Development Tools"></a>
+<br>
+  <a href="../../products/components.html" class="sidebar" onMouseOver="StcImgChange('productscomponents','../../images/productscomponents-roll.gif');" onMouseOut="StcImgChange('productscomponents','../../images/productscomponents.gif');"><img src="../../images/productscomponents.gif" id="productscomponents" border="0" width="120" height="20" alt="Components"></a>
+<br>
+  <a href="../../products/software.html" class="sidebar" onMouseOver="StcImgChange('productssoftware','../../images/productssoftware-roll.gif');" onMouseOut="StcImgChange('productssoftware','../../images/productssoftware.gif');"><img src="../../images/productssoftware.gif" id="productssoftware" border="0" width="120" height="20" alt="Software"></a>
+<br>
+  <a href="../../products/all.html" class="sidebar" onMouseOver="StcImgChange('productsall','../../images/productsall-roll.gif');" onMouseOut="StcImgChange('productsall','../../images/productsall.gif');"><img src="../../images/productsall.gif" id="productsall" border="0" width="120" height="20" alt="All Products"></a>
+<br>
+  </td>
+  <td width="1" valign="top" class="sidevbar"><img src="../../images/vbar.gif" height="20" width="1" border="0" alt=""></td>
+  <td width="10" valign="top" class="sidesbar"></td>
+  <td>
+  <table border="0" cellspacing="0" cellpadding="0" summary="">
+    <tr>
+      <td class="stc-body" height="60" align="center">
+	  <h1>AN0014 - Acessing General Purpose I/O from Linux</h1>
+      </td>
+    </tr>
+    <tr>
+      <td class="stc-body">
+<b>Sections:</b><table border=0><tr><td><a href="#intro">Introduction</a></td></tr><tr><td><a href="#acessingphysicalmemory">Accessing physical memory from Linux</a></td></tr><tr><td><a href="#therytopractice">From theory to practice</a></td></tr><tr><td><a href="#documentation">Documentation</a></td></tr><tr><td><a href="#onlinesupport">Online Support</a></td></tr></table><br clear="left"><h2 id="intro">Introduction</h2>This application note describes how General Purpose Input/Output (GPIO) pins may be manipulated, from Linux, on various Simtec products and introduces the general concepts involved. This means this application note, with suitable allowences for specific hardware, applies to almost any ARM hardware. Although this note referes to Linux and MMU enabled processors the concepts and indeed impementation still apply to &#956;CLinux. <h2>Overview</h2>
+
+<p>The following sections will introduce the basic concepts of
+accessing peripherals on the ARM CPU and then move on to a practical
+realisation of these concepts under Linux. It should be noted that
+there already exist a good number of tools for accessing and
+manipulating GPIO, such tools should be used in preference to new code
+as they have been tested and proven.
+
+<p>Unlike other areas of software it is very possible to
+<em>destroy</em> hardware by misusing GPIO pins on a system and
+suitable care <em>must</em> be taken. Simtec cannot accept any liability
+for how this information is used.
+
+<h2>Basic Concepts</h2>
+
+<p>All ARM processors access peripherals with memory mapped I/O. There
+are no specific instructions for manipulating I/O unlike some other
+processors like the Intel X86, instead all registers used to control a
+peripheral appear at some location in memory.
+
+<p>This introduces the first important issue to consider, that of
+alignment.  The ARM CPU can only manipulate data on "naturally" aligned
+boundaries that is boundaries rounded to the same size as the
+datatype. For example a byte may be accessed on any byte alignment
+(with the LDRB instruction) a sixteen bit value may be accessed from
+any sixteen bit alignment (at address 0,2,4 but not 1,3,5) and a
+thirty two bit value (a word) may only be accessed on 32bit alignments
+(at address 0,4,8 but not 1,2,3)
+
+<p>The second issue to consider is access length, the access to the
+data must be <em>exactly</em> the correct length, this implies the
+data type of accesses from a typed language (such as C) must be
+correct. For example, to access a sixteen bit register a
+<em>single</em> access must be performed by the CPU, a pair of byte
+reads would cause two reads from the hardware and would probably cause
+completely incorrect results. The datasheet for the device being
+accessed should provide guidance on the width of the data being
+accessed.
+
+<p>The third major issue to consider is the locations of the registers
+within the CPU address space. Typically the registers will be
+specified in the devices datasheet in <em>physical</em> memory
+locations, that is addresses the CPU must physically present on its
+address bus to obtain access to the device. The Memory Management Unit
+(MMU) will almost always be active while an operating system is
+running and the logical addresses used by applications will have
+<em>no</em> relation whatsoever to the physical addressing
+scheme. Because of the MMU almost all OS provide a method of obtaining
+access to physical address space, these two forms of addressing should
+not be confused. Although not usually relevant for GPIO access
+sometimes designers will attach peripheral chips to address lines
+starting from the second or third address line, thus multiplying all
+accesses by two or four (indeed sometimes addresses of registers may
+be many megabytes apart) this is implementation specific but is common
+enough to mention as it is a source of confusion.
+
+<p>The final issue to consider is that of multiplexed or multifunction
+pins. There are a finite number of pins that can be attached to a
+physical processor package, most modern Processors are System on
+chip(SOC) type devices where there are a huge number of functions,
+often this means that there are many more possible signals than
+physical external pins. In order to deal with this GPIO pins are often
+multiplexed with other signals. A choice often has to be made between a
+special function signal or a GPIO, some devices may have more than one
+alternate function for a pin. The multiplexing on a pin is controlled
+by an additional register within the memory map.
+
+
+<p>There exist several ways of arranging GPIO signals in memory, by
+far the most common involves using a data register to hold a physical
+representation of the levels on the relevant GPIO pins and a data
+direction register which determines whether a given GPIO pin drives its
+output or reads a pin as input. This method provides for simple
+reading of the state of a pin but poses an issue when outputting
+values. Writing is performed using the Read Modify Write (RMW) scheme,
+this involves reading the current value of the data register,
+modifying the output bit (representing the external level) and writing
+the result back to the data register. If however this is not performed
+as an atomic operation and some other process performs its read during
+the modify time of the first when the values are written back the
+value of one of the processes will be lost, giving incorrect results.
+
+
+<h2 id="acessingphysicalmemory">Accessing physical memory from Linux</h2>
+
+<p>ARM Linux provides a very simple way for user space applications to
+acquire access to Physical address space, while this is powerful, it may
+be dangerous as incorrect programming of hardware registers without
+the OS involvement will at best result in a crash and at worst damage
+to hardware. Care <em>must</em> be taken when manipulating hardware in
+this way and Simtec cannot accept responsibility for any errors made
+whilst using this information.
+
+<p>To access arbitrary addresses from <em>userspace</em> the /dev/mem
+file is used, this file allows a process to use the mmap call to
+obtain a user space pointer to a physical address. In this context mmap can only map <em>complete</em> pages. A general mapping of an arbitrary address is achieved using code such as this
+<pre class="code">#define MAP_SIZE 4096UL
+#define MAP_MASK (MAP_SIZE - 1)
+
+int main(int argc, char **argv) {
+    int fd;
+    void *map_base, *virt_addr;
+    off_t target = 0xB7A01084;
+
+    if((fd = open("/dev/mem", O_RDWR | O_SYNC)) == -1) {
+        printf("/dev/mem could not be opened.\n");
+        exit(1);
+    } else {
+        printf("/dev/mem opened.\n");
+    }
+    fflush(stdout);
+
+    /* Map one page */
+    map_base = mmap(0, MAP_SIZE, PROT_READ | PROT_WRITE, MAP_SHARED, fd, target+& ~MAP_MASK);
+    if(map_base == (void *) -1) {
+        printf("Memory map failed.\n");
+    } else {
+        printf("Memory mapped at address %p.\n", map_base);
+    }
+    fflush(stdout);
+
+    virt_addr = map_base + (target & MAP_MASK);
+
+    /* acess remapped region here */
+
+    if(munmap(map_base, MAP_SIZE) == -1) {
+        printf("Memory unmap failed.\n");	
+    }
+
+    close(fd);
+}</pre>
+
+<p>Once a mapping has been achieved the registers may be accessed as
+required, to ensure the correct type of access is performed by the CPU
+the void * pointer must be cast to the correct type, for instance in
+the above the following could be used
+
+<pre class="code">    /* for a byte wide access */
+    read_result = *((volatile unsigned char *) virt_addr);
+    /* for a sixteen bit access */
+    read_result = *((volatile unsigned short *) virt_addr);
+    /* for a thirty two bit access */
+    read_result = *((volatile unsigned long *) virt_addr);</pre>
+
+<p>This code has been needed so often that the "devmem2"
+program gets referred to almost every time this subject occurs. The <a
+href="files/devmem2.c">devmem2.c source code</a> is a GPL program that
+allows memory to be manipulated from the command line. Whilst it
+cannot be directly copied into a non GPL program it should serve as an
+example of how this problem is solved correctly. As there is only one
+way to solve this problem correctly any resultant code will look very
+similar. 
+
+<p>The major important areas here are
+<ul>
+<li>open the /dev/mem file with the O_SYNC flag, without this the mapping will be <em>cached</em></li>
+
+<li>The mmap() must be a shared mapping</li>
+
+<li>The mmap() must be to page aligned (4k) boundaries and a multiple of page lengths</li>
+
+<li>The correct type <em>must</em> be used to access the hardware 
+properly</em></li>
+
+<li>The <tt>volatile</tt> keyword to the compiler to ensure results are
+not cached. This is important or results will be inconsistant as the external I/O acesses may not be made without the directive.</li> 
+
+<li>Proper error handling is necessary in such code</li>
+</ul>
+
+<h2 id="therytopractice">From theory to practice</h2>
+
+<p>The first requirement is to be sure of the correct I/O pin used, as
+an example we shall use a simple switch circuit attached to an exposed
+GPIO line on our <a href="/products/EB675001DIP/">EB675001DIP</a>
+module. We have chosen this as an example for the sake of clarity, but
+this explanation applies to <em>any</em> GPIO pin exposed on any of
+our boards.
+
+<p><a href="switch-schematic-full.png"><img border=0 align="right" hspace="10" class="thumbnail" src="/appnotes/AN0014/switch-schematic-thumb.png" width="233.73786407767" height="150" alt="Schematic
+fragment of a simple switch circuit attached to IRQ0 and a
+simple LED circuit attached to PWM0" title="[png]"></a>The schematic
+fragment shown here has a simple switch circuit attached to IRQ1 and a
+simple LED circuit attached to the PWM0 output. These lines are
+labelled for their special functions, but as discussed earlier such
+lines are often multiplexed and referring to the <a
+href="http://www.simtec.co.uk/products/EB675001DIP/files/pinlist.html#pl3-4">EB675001DIP
+pinlist</a> it can be seen IRQ1 is also the CPU PIOE[6] (This
+information could just as easily be taken from the OKI ML675001
+manual). From the OKI ML675001 datasheet it can be seen that GPIO port
+E (PIOE) is controlled by six registers appearing at physical address
+0xB7A01080 to 0xB7A01094 and in addition the GPCTL (0xB7000000)
+register.
+
+<p>To cover all these registers a pair of single page mappings will
+suffice one at 0xB7000000 to cover the GPCTL register and one at
+0xB7A01000 which will cover all the GPIO control registers.
+
+<p>Once the mappings have been performed the GPIO pin must be configured by setting or clearing the appropriate bits in the control registers. In our example this involves the following steps <ul>
+
+<li>The port function select register (GPCTL) bit 11 must be cleared
+to select the external pin to be PIOE[6] and not EXTINT[1]
+
+<li>The port mode register for port E (GPPME) bit 6 must be cleared to
+set PIOE[6] to input
+
+<li>GPIO ports A through D (and port E bits 8 and 9) can also be
+configured to generate interrupts on level change (the polarity
+selected with an additional control register) for PIOE[6] this is not
+available and hence we do not need to configure these registers.
+
+</ul>
+
+<p>After configuring the Pin its current status may simply be read
+from the port input register (GPPIE) at address 0xB7A01084 as the
+switch circuit is normally high the switch in its open state means bit
+6 of the GPPIE register will be set, and when the button is pressed
+the bit will become cleared.<h2 id="documentation">Documentation</h2>
+	   <table class="stc-body-table" cellpadding=5 border=0 rules="rows">
+	   <tbody>	 
+	<tr><td>Devmem source</td><td><a href="files/devmem2.c"><img src="/images/txt.gif" border=0 align=middle alt="C source file" title="[C]"></a></td> 
+<!--  <td><a href="devmem2">C</a></td>-->
+</tr></tbody></table><h2 id="onlinesupport">Online Support</h2>
+
+   <form method="post" action="https://secure.simtec.co.uk/cgi-bin/incident.cgi"><input type="submit" value="Submit New Incident" ><input type="hidden" name="cmd" value="newincident"><input type="hidden" name="lg_appnote" value="true"></form><hr>
+     <p><b>Disclaimer</b>
+     <br>Information contained in this publication regarding device applications and the like is intended through suggestion only and may be superseded by updates. It is your responsibility to ensure that your application meets with your specifications. No representation or warranty is given and no liability is assumed by Simtec Electronics with respect to the accuracy or use of such information, or infringement of patents or other intellectual property rights arising from such use or otherwise.
+     <p><b>Trademarks</b>
+     <br>All trademarks mentioned are the property of their respective owners.
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<br>
+<hr>
+<address>
+  <a href="http://validator.w3.org/check/referer"><img src="../../images/valid-html401.png" height="31" width="88" align="right" border="0" alt="Valid HTML 4.0!"></a>
+     <font size="small">Any problems with this web page please contact the <a href="mailto:webmaster@simtec.co.uk">Webmaster</a></font>
+</address>
+<br>
+<p align="right"><font size="1">
+&copy;2004 Simtec Electronics
+<!--
+$Id: top.wml,v 1.19 2006/01/14 00:05:34 vince Exp $
+-->
+</font></p>
+</body>
+</html>

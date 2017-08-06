@@ -1,0 +1,58 @@
+pi@TRFRaspi ~/Desktop/TRF/mycode/tests/cpp-test-threads $ . build
+/home/pi/Desktop/TRF/mycode/inc found - building target..
+./cpp/main.cpp:8:2: warning: #warning "Compiling for C++ pre-1998" [-Wcpp]
+Target built.
+Run target test:
+- no arguments passed:
+Hello World
+arg[i]=./launchme
+Creating consumer thread
+Creating producer thread
+>Producer[3190], pctxt=0x11a6c
+Signal 1 sent
+>Consumer[3190], pctxt=0x11a6c
+.waitid failed with code 10
+:.waitid failed with code 10
+:.waitid failed with code 10
+:.waitid failed with code 10
+:.waitid failed with code 10
+:<Consumer
+Signal 2 sent
+Signal 3 sent
+Signal 4 sent
+Signal 5 sent
+<Producer
+^C>SignalHandler, signo=2
+<SignalHandler
+main status:
+signalsSent = 5
+signalsReceived = 5
+isSignalled = 1
+End of main
+- arg1 arg2 arg3 arg4 arguments passed:
+Hello World
+arg[i]=./launchme
+arg[i]=arg1
+arg[i]=arg2
+arg[i]=arg3
+arg[i]=arg4
+Creating consumer thread
+Creating producer thread
+>Producer[3197], pctxt=0x11a6c
+Signal 1 sent
+>Consumer[3197], pctxt=0x11a6c
+.waitid failed with code 10
+:.waitid failed with code 10
+:.waitid failed with code 10
+:.waitid failed with code 10
+:.waitid failed with code 10
+:<Consumer
+Signal 2 sent
+^C>SignalHandler, signo=2
+<SignalHandler
+main status:
+signalsSent = 2
+signalsReceived = 5
+isSignalled = 1
+End of main
+pi@TRFRaspi ~/Desktop/TRF/mycode/tests/cpp-test-threads $

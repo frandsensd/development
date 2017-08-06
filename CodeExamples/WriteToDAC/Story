@@ -1,0 +1,254 @@
+WriteToDAC Story
+================
+
+Using Raspberry Pi with Raspbian, the DAC(MCP4725) and two single digit displays the task is to:
+1)	Design breadboard containing the components and wiring to Raspberry Pi.
+2)	Write C/C++ code to accomplish:
+	a)	Output 0V, show '00' in displays.
+	b)	Output VDD, show '99' in displays.
+	c)	Output VDD/2, show '50' in displays.
+	d)	Output triangle curve starting from zero to VDD with frequency 1 Hz.
+
+
+Components available:
+- 1 x RGB LED 
+- 2 x Red LEDs
+- 2 x Green LEDs
+- 2 x Yellow LEDs
+- 2 x Blue LEDs
+- 2 x Push Button Switches
+- 10 x 220 Ohm Resistors
+- 5 x 10K Ohm Resistors
+- 1 x MCP4725, DAC
+- 2 x NTE3079, Common Cathode RHDP 7-segment displays
+- 3 x 74HC595, shift registers
+
+Notes on BCM2835 (RPi B+):
+==========================
+Addresses specified in BCM2835-ARM-Peripherals.pdf are ALL bus-addresses. To calculate physical addresses, subtract 0x5E000000 from the bus-address (0x7E000000->0x20000000).
+Hence for RPi we have:
+#define BCM2708_PERI_BASE		0x20000000	// RPi
+#define BCM2708_PERI_GPIO_OFFSET	0x200000
+
+#define BCM2708_PERI_BASE		0x3F000000	// RPi2
+
+RPi GPIO input voltage and output current limitations
+You should keep the following limitations in mind when using the GPIO pins:
+* These are 3.3 volt logic pins. A voltage near 3.3 V is interpreted as a logic one while a voltage near zero volts is a logic zero. A GPIO pin should never be connected to a voltage source greater than 3.3V or less than 0V, as prompt damage to the chip may occur as the input pin substrate diodes25 conduct. There may be times when you may need to connect them to out-of-range voltages – in those cases the input pin current must be limited by an external resistor to a value that prevents harm to the chip. I recommend that you never source or sink more than 0.5 mA into an input pin.
+* To prevent excessive power dissipation in the chip, you should not source/sink more current from the pin than its programmed limit. So, if you have set the current capability to 2 mA, do not draw more than 2 mA from the pin.
+* Never demand that any output pin source or sink more than 16 mA.
+* Current sourced by the outputs is drawn from the 3.3 V supply, which can supply only 50 mA maximum. Consequently, the maximum you can source from all the GPIO outputs simultaneously is less than 50 mA. You may be able to draw transient currents beyond that limit as they are drawn from the bypass capacitors on the 3.3 V rail, but don't push the envelope! There isn't a similar limitation on sink current. You can sink up to 16 mA each into any number of GPIO pins simultaneously. However, transient sink currents do make demands on the board's bypass capacitors, so you may get into trouble if all outputs switch their maximum current synchronously.
+* Do not drive capacitive loads. Do not place a capacitive load directly across the pin. Limit current into any capacitive load to a maximum transient current of 16 mA. For example, if you use a low pass filter on an output pin, you must provide a series resistance of at least 3.3V/16mA = 200 Ω.
+[http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications]
+
+
+1) Design breadboard containing the components and wiring to Raspberry Pi.
+--------------------------------------------------------------------------
+LED
+===
+Specs on LEDs - see
+[1] http://www.theledlight.com/LED101.html
+[2] http://electronicsclub.info/leds.htm
+
+HW Design:
+Red LED attached to 3.3V via resistor R1 to GPIO 24. 
+GPIO 24 must be initialized by SW as output with pullup to 3.3V, current drive must be specified to >=8mA.
+ILED = 10mA, VLEDMidBrightness=1.9V.
+R1 = U/I = (VCC - VLED) / ILED = (3.3-1.9)/0.010 ~ 140 Ohms.
+Raising R1 to 220 Ohms (220/10k available) will yield:
+(VCC-VLED)/R1 = (3.3-1.9)/220 = 6.4mA, @ILED=10mA, VLED=VCC-ILED*R1=3.3-0.01*220=1.1V which is too low. So assuming VLED>=1.7V.
+PR1 = VLED^2 / R1 = 1.7^2 * 220 = 13mW @ ILED=(VCC-VLED)/R1=1.6/220=7.3mA.
+This should provide a visible but weak light in direct line-of-sight.
+
+SW Functionality:
+Initialized: GPIO 24 is active LOW. GPIO 24 configured as output pin with output drive 8mA and pullup enabled. LED is OFF.
+Pulling GPIO 24 LOW will turn on LED, pulling HIGH or tristating will turn off LED.
+LED shall light up indicating when system is ON.
+When initiating system shutdown LED will blink three times and turn off indicating system switches OFF. 
+GPIO 25 interrupts are masked while blinking is going on until proper shutdown has completed.
+
+SW Test Code:
+#--------------------
+#!/usr/bin/python
+RedLedGPIO    = 24
+# Get Raspberry Pi GPIO library
+import RPi.GPIO as GPIO
+# Set up GPIO using BCM numbering 
+def ConfigureGPIO():
+	# To switch off the "Ports already in use" warnings
+	GPIO.setwarnings(False)
+	GPIO.setmode(GPIO.BCM)
+	GPIO.setup(RedLedGPIO, GPIO.OUT, pull_up_down=GPIO.PUD_UP)
+def SystemOn():
+	GPIO.output(RedLedGPIO, GPIO.LOW)
+def SystemOff():
+	GPIO.output(RedLedGPIO, GPIO.HIGH)
+
+#
+# Program start
+#
+
+ConfigureGPIO()
+print "Running one-sec blink test"
+count = 10
+while (count-- > 0)
+try:
+	if (count & 0x1)
+		SystemOn()
+	else
+		SystemOff()
+	sleep(1)
+
+except KeyboardInterrupt:
+	# Handle CTRL+C graceful exit
+	print "Keyboard Interrupt Exception occurred - leaving!"
+
+except:
+	# All other exceptions goes here
+	print "Exception occurred - leaving!"
+
+finally:
+	GPIO.cleanup()
+
+print "one-sec blink test done!"
+#--------------------
+#end-of-python-script
+
+[http://visualgdb.com/tutorials/raspberry/LED/] has a simple C++ which controls GPIO via file modifications. This is not efficient, but should work.
+mmapGpio library should work as well. Note however, need to modify it to be able to configure interrupts as well as drive strength and edge triggering.
+See Peripherals document on these registers. Keep in mind the addresses must be converted to physical addresses (RPiBase=0x20000000, RPi2Base=0x3f000000).
+TODO: Modify mmapGpio to contain pin config.
+
+
+
+BUTTON
+======
+HW Design:
+Button (B1) will turn on/off the system by toggling. System SW must be resilient towards debouncing.
+Button configuration:
+Button is connected to GND and directly to GPIO 25. By connecting to GND we don't have to worry about VCC source.
+GPIO 25 must be initialized by SW as input with a pullup.
+
+SW Functionality:
+Initialized: GPIO 25 is active LOW. GPIO 25 configured as input pin and pullup enabled.
+On B1 pressed: GPIO 25 will be pulled low.
+On B1 released: GPIO 25 will be pulled high.
+Button press handling: To debounce button, allow only one interrupt per 50ms and use raising edge as trigger.
+
+
+DISPLAYS
+========
+On display operation the two displays are NTE3079, Common Cathode RHDP 7-segment displays with IForward=20mA, VForwardMin=1.6V, VForwardMax=2.4V.
+Display pin configuration:
+       C
+ G  F  C  A  B
+10  9  8  7  6
+______________
+ ----A----
+ |       |
+ F       B
+ |       |
+ ----G----
+ |       |
+ E       C
+ |       |
+ ----D---- *DP
+______________
+ 1  2  3  4  5
+ E  D  C  C  D
+       C     P
+CC=Common Cathode, DP=DotPoint.
+
+To drive the two displays two 74HC595 shift registers (SR)s will be used.
+VOperatingMin=2V, VOperatingMax=6V, IOutMax=35mA, ITotalVccGndMax=70mA, ClkFreqMax=5MHz.
+HW Design:
+Hardwire SRCLR(#10)=VCC(#16)=3.3V ignoring clear.
+Control SER(#14, serial input) by GPIO 17. Initialize to 0, leaving zeros for input data.
+Control OE(#13, Output Enable) by GPIO 18. Initialize to 1, leaving displays off.
+Connect QH' (#9, serial output for cascading) from first digit SR to second digit SR SER(#14).
+Control SRCLK (#11, Shift Register CLK, positive edge) by GPIO 27. Initialize to 0.
+Control RCLK (#12, Storage Register CLK, positive edge) by GPIO 27. Initialize to 0.
+NOTE: SRCLK and RCLK can be combined to one GPIO. If this is done, keep in mind shift register is always one clock pulse ahead of storage register.
+Design will use SRCLK and RCLK as common CLK.
+Connect QAs(#15) to Displays A(#7).
+Connect QBs(#1) to Displays B(#6).
+Connect QCs(#2) to Displays C(#4).
+Connect QDs(#3) to Displays D(#2).
+Connect QEs(#4) to Displays E(#1).
+Connect QFs(#5) to Displays F(#9).
+Connect QGs(#6) to Displays G(#10).
+Connect QHs(#7) to Displays DP(#5).
+Connect Displays CC(#3, #8) to R2 for lower digit and R3 for higher digit.
+The R2/R3's must be dimensioned such that we meet the min requirements for the displays.
+We have the SR will deliver 3.3V on high. We have the display can accept voltage levels in range [1.6-2.4]V, with max IForward=20mA.
+Thus R2 = (VSR-VDISP)/IDISP = (3.3-1.8)V / 10mA = 150 Ohms. Raising this to 220 Ohms per availability.
+Power check:
+We have 10mA/segment over one 220 Ohms resistor; this yields PSEG=ISEG^2*R=(10mA)^2*220=22mW/Segment. We have 8 segments which will keep power dissipated below 1/4W, so one 220 Ohms resistor should be enough per display.
+
+SW Functionality:
+Initialize by setting GPIO 18 (OE) high to switch off LED latch and GPIO 17 (SER) low as zero input data.
+Serial format: MSB (H) first. Then clock out the two databytes (two digits) by a total of 18 positive edges, 9 for filling first digit register, 9 for filling second digit register.
+Now set OE=0 to display result.
+Data mapping:
+A=LSB, H=*DP=MSB, hence
+A=0x01
+B=0x02
+C=0x04
+D=0x08
+E=0x10
+F=0x20
+G=0x40
+H/DP=0x80
+To light up segment A we need to write 0x01 to the SR, as 00000001, thus write 0, then 0, then ... last 1.
+ ----A----
+ |       |
+ F       B
+ |       |
+ ----G----
+ |       |
+ E       C
+ |       |
+ ----D---- *DP
+	Active	SerialPort
+Digit	Segment Value
+------------------------------
+1	BC	02+04=			06
+2	ABGED	01+02+40+10+08=		5B
+3	ABGCD	01+02+40+04+08=		4F
+4	FBGC	20+02+40+04=		66
+5	FAGCD	20+01+40+04+08=		6D
+6	FAGECD	20+01+40+10+04+08=	7D
+7	ABC	01+02+04=		07
+8	FABGECD	20+01+02+40+10+04+08=	7F
+9	FABGC	20+01+02+40+04=		67
+0	FABECD	20+01+02+10+04+08=	3F
+A	FABGEC	20+01+02+40+10+04=	77
+b	FGECD	20+40+10+04+08=		7C
+C	FAED	20+01+10+08=		39
+d	BGECD	02+40+10+04+08=		5E
+E	FAGED	20+01+40+10+08=		79
+F	FAGE	20+01+40+10=		71
+.	*DP	80			80
+Hence to write e.g. '..' in the displays, we need to write 0x8080 to SER (GPIO 17) followed by 18 clocks (toggle GPIO 27 with 18 positive edges, start by high as it's initialized to low).
+Hereafter we need to enable output by clearing GPIO 18.
+Notes on timing in regards to SR 74HC595:
+tw indicates the minimum half-cycle time for SER clk.
+For VCC=2V:tw>=100ns; VCC=4.5V:tw>=20ns; VCC=6V:tw>=17ns; interpolating VCC=3.3V:tw~60ns.
+Hence the clock pin must be fixed at a level for at least 60ns@VCC=3.3V.
+
+
+DAC
+===
+Based on DAC datasheet, it's controlled using I2C. From Adafruit board the A2|A1 address pins are specified as '01' hence I2C address will be 0x110001<A0>. Let A0 be tied to GND, hence I2C address will be 0x1100010 = 0x62.
+VDD range: [2.7-5.5]V
+In order to enable I2C we need to alter config.txt file and enable I2C as well as set baudrate as follows (NOTE: Assignments like this shall NOT exceed 79 chars/line):
+dtparam=i2c_arm=on,i2c_arm_baudrate=400000
+as well as configure the relevant GPIO settings. Reference also contains info on how to debug these settings.
+[https://www.raspberrypi.org/documentation/configuration/device-tree.md]
+To enable the clock we need to access:
+CM_GP0CTL, GP1CTL & GP2CTL and CM_GP0DIV, CM_GP1DIV & CM_GP2DIV - see Broadcom RPi spec pp107.
+
+HW Design:
+
+SW Functionality:
+

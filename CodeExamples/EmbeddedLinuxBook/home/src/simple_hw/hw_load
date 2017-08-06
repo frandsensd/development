@@ -1,0 +1,31 @@
+#!/bin/sh
+module="simple_hw"
+device="pio"
+mode="664"
+
+# invoke insmod with all arguments we got
+/sbin/insmod $module.ko $* || exit 1
+
+major=`cat /proc/devices | awk "\\$2==\"$module\" {print \\$1}"`
+
+# Create 8 entry points, as NR_PORTS is 8 by default
+# These devices are named to match the PIO register descriptions
+# in the S3C2440 data sheet.  We start with port B because port A
+# is dedicated to address and chip select lines
+rm -f /dev/${device}_*
+mknod /dev/${device}_GPBCON c $major 0
+mknod /dev/${device}_GPBDAT c $major 1
+mknod /dev/${device}_res1   c $major 2
+mknod /dev/${device}_res2   c $major 3
+mknod /dev/${device}_GPCCON c $major 4
+mknod /dev/${device}_GPCDAT c $major 5
+mknod /dev/${device}_GPCUP  c $major 6
+mknod /dev/${device}_res3   c $major 7
+
+chmod $mode  /dev/${device}_*
+
+
+
+
+
+

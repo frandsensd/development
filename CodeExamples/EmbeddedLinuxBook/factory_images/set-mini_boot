@@ -1,0 +1,17 @@
+timeout 1200
+send setenv ipaddr 192.168.1.50
+expect {
+ "MINI2440 #"
+}
+send setenv serverip 192.168.1.2
+expect {
+ "MINI2440 #"
+}
+send tftp 32000000 mini_boot.scr
+expect {
+ "MINI2440 #"
+}
+send autoscr 32000000
+expect {
+ "MINI2440 #"
+}

@@ -1,0 +1,2 @@
+setenv boot_tftp tftpboot 32000000 uImage\; bootm
+saveenv

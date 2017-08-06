@@ -1,0 +1,8 @@
+What	Amount	Description
+ADC	1	MCP3008, 8-channels, 10-bit ADC, SPI (mode 0,0 and 1,1), 75kS/s@VDD=2.7V-200kS/s@VDD=5V, 3.6MHz CLK.
+DAC	1	MCP4725, 12-bit DAC, I2C (100kbps, 400kbps and 3.4Mbps) modes, VDD range [2.7-5.5]V.
+74595	3	74HC595, 8-bit shift register with 3-stated outputs, VDD range [2-6]V.
+DispA	2	NTE3079, 8-segment single digit LED display with dot.
+DispB	2	Luckylight KWA-541CVB, Ultra Red Common Cathode dual digit alphanumeric display.
+DispC	1	Using DispB and an adapter board, DispC consists of I2C controlled four digit alphanumeric display.
+

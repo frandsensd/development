@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" dir="ltr" lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GPIO Electrical Specifications, Raspberry Pi Input and Output Pin Voltage and Current Capability</title>
+<meta name="robots" content="noodp,noydir">
+<meta name="author" content="Paul Clifford, ">
+<meta name="description" content="The Raspberry Pi provides general purpose digital input/output pins (called GPIO pins) that you can use for reading digital logic signals or for outputting digital logic levels. The outputs do not have much current capability, but you can drive LEDs or …">
+<meta name="keywords" content="raspberry pi input output pin voltage current capability, gpio pin circuitry, input output pin electrical specifications, rpi gpio input voltage output current limitations, gpio power on state, raspberry pi driver software for configuring setting gpio pins, gpio pinout header p1, board's revision number, raspberry pi general purpose digital input/output pins gpio pins use for reading digital logic signals for outputting digital logic levels, outputs current capability, drive leds low current devices">
+<link rel="contents" href="http://www.mosaic-industries.com/embedded-systems/site-map" title="Table of Contents, Index">
+<meta name="generator" content="DW Mosaic template">
+<meta name="robots" content="index,follow">
+<meta name="revision" content="2015-03-09T00:14:48+0000">
+<link rel="search" type="application/opensearchdescription+xml" href="http://www.mosaic-industries.com/embedded-systems/lib/exe/opensearch.php" title="Mosaic Documentation Web">
+<link rel="start" href="http://www.mosaic-industries.com/embedded-systems/">
+<link rel="alternate" type="application/rss+xml" title="Recent Changes" href="http://www.mosaic-industries.com/embedded-systems/feed.php">
+<link rel="alternate" type="application/rss+xml" title="Current Namespace" href="http://www.mosaic-industries.com/embedded-systems/feed.php?mode=list&amp;ns=microcontroller-projects:raspberry-pi">
+<link rel="alternate" type="text/html" title="Plain HTML" href="http://www.mosaic-industries.com/embedded-systems/_export/xhtml/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications">
+<link rel="alternate" type="text/plain" title="Wiki Markup" href="http://www.mosaic-industries.com/embedded-systems/_export/raw/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications">
+<link rel="canonical" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications">
+<link rel="stylesheet" media="screen" type="text/css" href="GPIO%20Electrical%20Specifications_files/css_002.css">
+<link rel="stylesheet" media="all" type="text/css" href="GPIO%20Electrical%20Specifications_files/css.css">
+<link rel="stylesheet" media="print" type="text/css" href="GPIO%20Electrical%20Specifications_files/css_003.css">
+<script async="" src="GPIO%20Electrical%20Specifications_files/cbgapi.loaded_1"></script><script async="" src="GPIO%20Electrical%20Specifications_files/cbgapi.loaded_0"></script><script gapi_processed="true" src="GPIO%20Electrical%20Specifications_files/plusone.js" async="" type="text/javascript"></script><script src="GPIO%20Electrical%20Specifications_files/ga.js" async="" type="text/javascript"></script><script type="text/javascript"><!--//--><![CDATA[//><!--
+var NS='microcontroller-projects:raspberry-pi';var JSINFO = {"id":"microcontroller-projects:raspberry-pi:gpio-pin-electrical-specifications","namespace":"microcontroller-projects:raspberry-pi"};
+//--><!]]></script>
+<script type="text/javascript" charset="utf-8" src="GPIO%20Electrical%20Specifications_files/js.php"></script><style type="text/css" media="screen"><!--/*--><![CDATA[/*><!--*/ .folded.hidden { display: none; } .folder .indicator { visibility: visible; } /*]]>*/--></style>
+<script type="text/javascript" charset="utf-8" src="GPIO%20Electrical%20Specifications_files/menu.js"></script>
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+var indexmenu_ID='microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications'
+//--><!]]></script>
+<link rel="shortcut icon" href="http://www.mosaic-industries.com/embedded-systems/lib/tpl/mosaic/images/favicon.gif">
+<style type="text/css">.block.public{display:block;}.block.local{display:none;}.inline.public {display:inline;}.inline.local{display:none;}div.dokuwiki.export{width:720px;}
+  #center__col{min-width:620px;}
+  .pg_both{margin:0 162px 0 224px;padding:0 2px 2px 2px;}
+  .pg_only{padding:0 0 2px 0;}
+  .pg_no_left{margin:0 162px 0 0;padding:0 2px 2px 0;}
+  .pg_no_right{margin:0 0 0 224px;padding:0 0 2px 2px;}
+  #left__col{width:224px;}
+  #right__col{width:162px;margin-left:-162px;}
+  div.sb{max-height:480px;}
+  .wboth{min-width:1024px;}
+  .wneither{ min-width:634px;}
+  .wleft{min-width:860px;}
+  .wright{min-width:798px;}</style>
+<script type="text/javascript">var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-8685403-1']);_gaq.push(['_trackPageview']);(function() {var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);})();</script>
+</head>
+<body>
+<div class="dokuwiki">
+<div id="body__width" class="wleft">
+<header id="body__banner"><div id="m__header">
+<div style="float:right;"></div>
+<div id="m__logo">
+<a href="http://www.mosaic-industries.com/embedded-systems/microcontroller" title="Mosaic Documentation Web"><img src="GPIO%20Electrical%20Specifications_files/logo.png" alt="Documents, tutorials, how-to guides, product manuals, specifications -- programming single board computers, instrument controllers and microcontrollers for measurement, control, SCADA, instrumentation and industrial automation" title="Documents, tutorials, how-to guides, product manuals, specifications -- programming single board computers, instrument controllers and microcontrollers for measurement, control, SCADA, instrumentation and industrial automation"></a><span id="m__logoline"><a href="http://www.mosaic-industries.com/embedded-systems/microcontroller" accesskey="h" title="Documents, tutorials, how-to guides, product manuals, specifications -- programming single board computers, instrument controllers and microcontrollers for measurement, control, SCADA, instrumentation and industrial automation">Mosaic Documentation Web</a></span><span id="tag__line">Providing Embedded Computers for Instruments &amp; Automation since 1985</span></div></div>
+<div id="__bcs">
+<div class="breadcrumbs"><div class="emptybtn">&nbsp;</div><span class="bchead">Visited pages:&nbsp;</span><span class="curid"><a href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications" class="breadcrumbs" title="microcontroller-projects:raspberry-pi:gpio-pin-electrical-specifications" rel="nofollow">GPIO Electrical Specifications</a></span></div>
+<div class="breadcrumbs"><div id="btn__TLC" class="ltglclose" title="Show/hide the left sidebar">&nbsp;</div><nav><span class="bchead">Current path: </span><a href="http://www.mosaic-industries.com/embedded-systems/microcontroller" class="wikilink1" title="microcontroller">All Docs</a> \ <a href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/microcontroller" class="wikilink1" title="microcontroller-projects:microcontroller">App Notes &amp; Toolkits</a> \ <a href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/microcontroller" class="wikilink1" title="microcontroller-projects:raspberry-pi:microcontroller">Raspberry Pi</a> \ <span class="curid"><a href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications" class="wikilink1" title="microcontroller-projects:raspberry-pi:gpio-pin-electrical-specifications">GPIO Electrical Specifications</a></span></nav></div>
+
+</div>
+</header>
+<div id="bdy__content"><div id="m__cols"><div id="center__col"><div style="margin-left: 224px;" id="center__content" class="pg_no_right">
+<div id="m__pgcontents"><div id="content__shdwbox" class="rounded tintedtop pgtop"><div class="tlbr_holder" id="tlbr_placeholder"></div>
+<div id="__origin">
+<div class="linkhere"><span class="popup_link inline action16 link" title="Help others find us by linking to this page" onclick="msc_positionPopup(this)" id="_678680949">Link here</span><span><!--<div id="pop_678680949" class="popup"><span class="insitupopup"><span class="popup_close"><a onclick="this.parentNode.parentNode.parentNode.style.display='none';">&nbsp; &nbsp; &nbsp;</a></span><span class="popup_content"><p>To link to this page, copy the following code and paste it into your web page. Feel free to customize it for your page.</p><div class="block wrap"><pre class="code" style="color:#521;font-size:100%">&lt;p&gt;&lt;a href=&quot;http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications&quot; target=&quot;_blank&quot; title=&quot;Single board computers (SBCs) microcontrollers &amp; embedded systems RTOS for instrumentation and industrial automation&quot;&gt;GPIO Electrical Specifications&lt;/a&gt;&lt;/p&gt;</pre></div></span></span></div>--></span><div class="sharebtn"><div class="gplusone"><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 24px; height: 15px;"><iframe title="+1" data-gapiattached="true" src="GPIO%20Electrical%20Specifications_files/fastbutton.html" name="I0_1433960787300" id="I0_1433960787300" vspace="0" tabindex="0" style="position: static; top: 0px; width: 24px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 15px;" scrolling="no" marginwidth="0" marginheight="0" hspace="0" frameborder="0" width="100%"></iframe></div></div></div></div>
+<article class="content" itemscope="" itemtype="http://schema.org/Article">
+<meta itemprop="mainContentOfPage" content="true">
+<meta itemprop="name" content="GPIO Electrical Specifications, Raspberry Pi Input and Output Pin Voltage and Current Capability">
+<meta itemprop="headline" content="GPIO Electrical Specifications, Raspberry Pi Input and Output Pin Voltage and Current Capability">
+<meta itemprop="description" content="The Raspberry Pi provides general purpose digital input/output pins (called GPIO pins) that you can use for reading digital logic signals or for outputting digital logic levels. The outputs do not have much current capability, but you can drive LEDs or …">
+<meta itemprop="author" content="Paul Clifford, ">
+<meta itemprop="editor" content="Paul Clifford, , Mosaic Industries, Inc.">
+<meta itemprop="publisher" content="Mosaic Industries, Inc.">
+<meta itemprop="copyrightHolder" content="Mosaic Industries, Inc.">
+
+
+<h1 class="sectionedit1" id="gpio-electrical-specifications">GPIO Electrical Specifications<br><strong>Raspberry Pi input and output pin voltage and current capability</strong></h1><div class="level1"><hr>
+
+<p></p><div class="inlinetoc"><!-- TOC START -->
+<div class="toc">
+<div style="cursor: pointer;" class="tocheader toctoggle" id="toc__header"><span class="toc_close" style="cursor: pointer;" id="toc__toggle"><span>−</span></span>Page Contents</div>
+<div id="toc__inside">
+
+<ul class="toc">
+<li class="level1"><div class="li"><span class="li"><a href="#gpio-pin-circuitry" class="toc">GPIO pin circuitry</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="#input-and-output-pin-electrical-specifications" class="toc">Input and output pin electrical specifications</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="#rpi-gpio-input-voltage-and-output-current-limitations" class="toc">RPi GPIO input voltage and output current limitations</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="#gpio-power-on-state" class="toc">GPIO power-on state</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="#raspberry-pi-driver-software-for-configuring-and-setting-gpio-pins" class="toc">Raspberry Pi driver software for configuring and setting GPIO pins</a></span></div></li>
+<li class="level1"><div class="li"><span class="li"><a href="#gpio-pinout-on-header-p1" class="toc">GPIO pinout on header P1</a></span></div>
+<ul class="toc">
+<li class="level2"><div class="li"><span class="li"><a href="#finding-your-board-s-revision-number" class="toc">Finding your board's revision number</a></span></div></li></ul>
+</li></ul>
+</div>
+</div>
+<!-- TOC END -->
+</div><p>
+</p>
+<p>The <a href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/microcontroller" class="wikilink1" title="Mosaic's Raspberry Pi pages">Raspberry Pi</a>
+ provides general purpose digital input/output pins (called GPIO pins) 
+that you can use for reading digital logic signals or for outputting 
+digital logic levels.  The outputs do not have much current capability, 
+but you can drive LEDs or other low current devices.  Of course to use 
+them effectively and safely, you need to know their voltage levels and 
+drive capability, and unfortunately, the RPi vendors don't supply the 
+GPIO pin specs.
+</p>
+<p>It is a source of frustration to Raspberry Pi users that the 
+electrical characteristics of the input/output pins of the Broadcom 
+BCM2835 SoC (system-on-chip) are not adequately specified in the 
+Raspberry Pi documentation or processor datasheet.
+</p>
+<p>This page tries to address that inadequacy by piecing together information from the <a href="http://www.raspberrypi.org/" class="urlextern" target="_blank" title="http://www.raspberrypi.org/">Raspberry Pi foundation</a>, other sites including the <a href="http://elinux.org/" class="urlextern" target="_blank" title="http://elinux.org">eLinux Wiki</a>, and datasheets of other processors.  However, please treat any updated specifications at <a href="http://www.raspberrypi.org/" class="urlextern" target="_blank" title="http://www.raspberrypi.org/">RaspberryPi.org</a> as definitive.
+</p>
+<p>The Broadcom BCM2835 incorporates an ARM1176 processor core.  The ARM
+ processors are low-cost yet high performance processors used in smart 
+phones, digital TVs, eReaders and other media devices.  ARM licenses the
+ processor to other companies, like Broadcom, who combine it with 
+various <abbr title="Digital and/or Analog Input and Output lines">I/O</abbr> modules and incorporate it into system-on-chip designs.  ARM also provides the physical <abbr title="Inernet Protocol //or// Internet Protocol Address //or// Intellectual Property">IP</abbr> for the digital inputs and outputs (GPIO) as cell libraries.
+</p>
+<p>In this document we piece together what is known of the electrical 
+specifications for the general purpose input/output pins from the 
+various RPi documents and from comparable SoC devices that also use the 
+ARM1176JZFS core.
+</p><a class="backtotop" href="#dokuwiki__top" rel="nofollow" onclick="window.scrollTo(0, 0)" title="Back to top">&nbsp;</a></div>
+
+<h2 class="sectionedit2" id="gpio-pin-circuitry">GPIO pin circuitry</h2><div class="level2">
+<p>The Raspberry Pi's GPIO pins are quite versatile, and you can modify 
+many of their characteristics from software.  You can turn on/off input 
+pin hysteresis, limit output slew rate, and control source and sink 
+current drive <em>capability</em> from 2 mA to 16 mA in 2 mA increments.  These properties are set for the GPIO block as a whole, not on a pin-by-pin basis.
+</p>
+<p>Source/sink current capability does not limit the current into or out
+ of the pin, but only specifies the maximum current for which the output
+ signal high/low voltage specifications will be met.  If misused, output
+ pins can be damaged by excessive current irrespective of the 
+source/sink current programmed.  After a reset, the RPi comes up with 
+the GPIO outputs set to 8 mA drive capability.
+</p>
+<p>The following diagram shows a simplified schematic of the I/O pin circuitry:
+</p><figure class="block" itemprop="primaryImageOfPage" itemscope="" itemtype="http://schema.org/ImageObject"><meta itemprop="representativeOfPage" content="true"><a href="http://www.mosaic-industries.com/embedded-systems/_detail/microcontroller-projects/raspberry-pi/raspberry-pi-circuit-gpio-input-pins.png?id=microcontroller-projects:raspberry-pi:gpio-pin-electrical-specifications" class="media" target="_blank" title="Click for image of Raspberry Pi GPIO input pin circuit"><img src="GPIO%20Electrical%20Specifications_files/raspberry-pi-circuit-gpio-input-pins.png" alt="Raspberry Pi circuit" class="mediacenter" title="Click for image of Raspberry Pi GPIO input pin circuit"></a>
+<meta itemprop="keywords" content="Equivalent circuit for a Raspberry Pi GPIO pin."><meta itemprop="name" content="Equivalent circuit for a Raspberry Pi GPIO pin."><meta itemprop="description" content="Equivalent circuit for a Raspberry Pi GPIO pin."><figcaption class="block fcaptionbelow"><a class="figtag" id="fig1">Fig. 1</a>&nbsp;&nbsp;<strong itemprop="caption">Equivalent circuit for a Raspberry Pi GPIO pin.</strong></figcaption><div class="clearer"></div></figure>
+<p>There are a few notable features of the circuit:
+</p><ul>
+<li class="level1"><div class="li">
+ The input gate detects whether the input voltage level is low or high 
+by comparing it to a threshold voltage.  Normally the voltage threshold 
+is about 1.8V, but it isn't guaranteed; it can be anywhere between the 
+maximum input low and minimum input high, that is, between about 0.8 and
+ 2.0V.
+</div></li>
+<li class="level1"><div class="li">
+ To provide noise immunity and prevent chatter on transitions, you can 
+configure the input gate to act as a Schmitt trigger, with input 
+hysteresis.  With hysteresis there are different threshold voltages for 
+rising and falling transitions.  Broadcom doesn't specify the degree of 
+hysteresis, but <a href="#tab1" class="wikilink1" title="microcontroller-projects:raspberry-pi:gpio-pin-electrical-specifications ↵">Table 1</a>
+ offers some representative values from other ARM1176-based devices.  
+For a better understanding of how it works, you can read our more 
+detailed description of <a href="http://www.mosaic-industries.com/embedded-systems/sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/interfacing-hardware-digital-io#s12-input-pin-hysteresis" class="wikilink1" title="sbc-single-board-computers:freescale-hcs12-9s12-c-language:instrument-control:interfacing-hardware-digital-io">input pin hysteresis for the Freescale 9S12/HCS12 MCU</a>.  That description pertains to a different processor, but the operation is the same.
+</div></li>
+<li class="level1"><div class="li">
+ The output drives to either 3.3V (high) or 0V (low).  Only one driver 
+is shown in the schematic, but in actuality there are several wired in 
+parallel, with software controlling which are enabled, so that the 
+output drive impedance can be varied to offer 2 mA to 16 mA current 
+capability, in 2 mA increments.
+</div></li>
+<li class="level1"><div class="li">
+ While a pull-up/down resistor value of 50 KΩ is shown in the figure, 
+Broadcom doesn't specify its value.  It is likely to be in the 40 to 
+100 KΩ range, as shown in <a href="#tab1" class="wikilink1" title="microcontroller-projects:raspberry-pi:gpio-pin-electrical-specifications ↵">Table 1</a>.
+  The transistors that enable the pull-up/down resistor contribute their
+ appreciable nonlinear resistance to it, so the effective resistance is 
+not constant over the input pin voltage range.  The pull-up behavior is 
+somewhat of a cross between constant resistance and constant current 
+behavior.
+</div></li>
+</ul>
+
+<a class="backtotop" href="#dokuwiki__top" rel="nofollow" onclick="window.scrollTo(0, 0)" title="Back to top">&nbsp;</a></div>
+
+<h2 class="sectionedit3" id="input-and-output-pin-electrical-specifications">Input and output pin electrical specifications</h2><div class="level2">
+<p>In lieu of actual measurements, the following specifications are 
+provide as good faith estimates that you may use as guidelines in your 
+designs.  These specifications are derived from the Raspberry Pi 
+datasheets as well as datasheets of other other ARM1176-based SoCs, 
+specifically these:
+</p><div class="block noimage"><ul>
+<li class="level1"><div class="li">
+ <a href="http://www.freescale.com/files/32bit/doc/data_sheet/MCIMX31.pdf" class="urlextern" target="_blank" title="http://www.freescale.com/files/32bit/doc/data_sheet/MCIMX31.pdf">Freescale MCIMX31</a> multimedia application processor;
+</div></li>
+<li class="level1"><div class="li">
+ <a href="http://documentation.renesas.com/doc/DocumentServer/S19850EJ1V0PB00.pdf" class="urlextern" target="_blank" title="http://documentation.renesas.com/doc/DocumentServer/S19850EJ1V0PB00.pdf">Renasas μPD77630A</a> mobile multimedia processor; and,
+</div></li>
+<li class="level1"><div class="li">
+ <a href="http://infocenter.arm.com/help/topic/com.arm.doc.dui0425f/DUI0425F_realview_platform_baseboard_for_arm1176jzf_ug.pdf" class="urlextern" target="_blank" title="http://infocenter.arm.com/help/topic/com.arm.doc.dui0425f/DUI0425F_realview_platform_baseboard_for_arm1176jzf_ug.pdf">Development board for the ARM1176JZF</a>
+</div></li>
+</ul>
+
+</div>
+<p>Their GPIO specs are summarized in the following table:
+</p><div class="block table center" style="width:35em;" itemscope="" itemtype="http://schema.org/Table"><div class="table sectionedit4"><table class="inline"><tbody><tr class="row0"><th class="col0 centeralign" colspan="2">  GPIO input/output pin electrical characteristics  </th></tr><tr class="row1"><th class="col0 rightalign">  Output low voltage<br>V<sub>OL</sub> </th><td class="col1 rightalign">  &lt; 0.40 V  <sup><a href="#fn__1" id="fnt__1" rel="nofollow" class="fn_top">1)</a></sup><br> &lt; 0.66 V  <sup><a href="#fn__2" id="fnt__2" rel="nofollow" class="fn_top">2)</a></sup><br> &lt; 0.40 V  <sup><a href="#fn__3" id="fnt__3" rel="nofollow" class="fn_top">3)</a></sup> </td></tr><tr class="row2"><th class="col0 rightalign">  Output high voltage<br>V<sub>OH</sub> </th><td class="col1 rightalign">  &gt; 2.40 V  <sup><a href="#fn__4" id="fnt__4" rel="nofollow" class="fn_top">4)</a></sup><br> &gt; 2.64 V  <sup><a href="#fn__5" id="fnt__5" rel="nofollow" class="fn_top">5)</a></sup><br> &gt; 2.90 V  <sup><a href="#fn__6" id="fnt__6" rel="nofollow" class="fn_top">6)</a></sup> </td></tr><tr class="row3"><th class="col0 rightalign">  Input low voltage<br>V<sub>IL</sub> </th><td class="col1 rightalign">  &lt; 0.80 V  <sup><a href="#fn__7" id="fnt__7" rel="nofollow" class="fn_top">7)</a></sup><br> &lt; 0.54 V  <sup><a href="#fn__8" id="fnt__8" rel="nofollow" class="fn_top">8)</a></sup><br> &lt; 1.15 V  <sup><a href="#fn__9" id="fnt__9" rel="nofollow" class="fn_top">9)</a></sup> </td></tr><tr class="row4"><th class="col0 rightalign">  Input high voltage<br>V<sub>IH</sub> </th><td class="col1 rightalign">  &gt; 2.00 V  <sup><a href="#fn__10" id="fnt__10" rel="nofollow" class="fn_top">10)</a></sup><br> &gt; 2.31 V  <sup><a href="#fn__11" id="fnt__11" rel="nofollow" class="fn_top">11)</a></sup><br> &gt; 2.15 V  <sup><a href="#fn__12" id="fnt__12" rel="nofollow" class="fn_top">12)</a></sup> </td></tr><tr class="row5"><th class="col0 rightalign">  Hystereses </th><td class="col1 rightalign">  &gt; 0.25 V  <sup><a href="#fn__13" id="fnt__13" rel="nofollow" class="fn_top">13)</a></sup><br> &nbsp;&nbsp;&nbsp;0.66 – 2.08 V  <sup><a href="#fn__14" id="fnt__14" rel="nofollow" class="fn_top">14)</a></sup> </td></tr><tr class="row6"><th class="col0 rightalign">  Schmitt trigger input low threshold<br>V<sub>T–</sub> </th><td class="col1 rightalign">  1.09 - 1.16 V  <sup><a href="#fn__15" id="fnt__15" rel="nofollow" class="fn_top">15)</a></sup> <br>0.9  <sup><a href="#fn__16" id="fnt__16" rel="nofollow" class="fn_top">16)</a></sup></td></tr><tr class="row7"><th class="col0 rightalign">  Schmitt trigger input high threshold<br>V<sub>T+</sub> </th><td class="col1 rightalign">  2.24 - 2.74 V  <sup><a href="#fn__17" id="fnt__17" rel="nofollow" class="fn_top">17)</a></sup> <br> 0.90 V  <sup><a href="#fn__18" id="fnt__18" rel="nofollow" class="fn_top">18)</a></sup> </td></tr><tr class="row8"><th class="col0 rightalign">  Pull-up/down<br>resistance </th><td class="col1 rightalign">  40 – 65 KΩ  <sup><a href="#fn__19" id="fnt__19" rel="nofollow" class="fn_top">19)</a></sup><br> 100 KΩ  <sup><a href="#fn__20" id="fnt__20" rel="nofollow" class="fn_top">20)</a></sup></td></tr><tr class="row9"><th class="col0 rightalign">  Pull-up/down<br>current </th><td class="col1 rightalign">  &lt; 50 uA  <sup><a href="#fn__21" id="fnt__21" rel="nofollow" class="fn_top">21)</a></sup> <br> &lt; 28 uA  <sup><a href="#fn__22" id="fnt__22" rel="nofollow" class="fn_top">22)</a></sup> </td></tr><tr class="row10"><th class="col0 rightalign">  Pin capacitance </th><td class="col1 rightalign">  5 pF  <sup><a href="#fn__23" id="fnt__23" rel="nofollow" class="fn_top">23)</a></sup> </td></tr><tr class="row11"><th class="col0 rightalign">  Bus hold resistance </th><td class="col1 rightalign">  5-11 KΩ  <sup><a href="#fn__24" id="fnt__24" rel="nofollow" class="fn_top">24)</a></sup> </td></tr></tbody></table></div>
+<meta itemprop="keywords" content="Raspberry Pi GPIO input output pin electrical specifications"><meta itemprop="description" content="Raspberry Pi GPIO input output pin electrical specifications"><div class="block tablecaption tcaptionbelow"><a class="tabletag" id="tab1">Table 1</a>&nbsp;&nbsp;<strong itemprop="about">Raspberry Pi GPIO input output pin electrical specifications</strong></div><div class="clearer"></div></div><a class="backtotop" href="#dokuwiki__top" rel="nofollow" onclick="window.scrollTo(0, 0)" title="Back to top">&nbsp;</a></div>
+
+<h2 class="sectionedit5" id="rpi-gpio-input-voltage-and-output-current-limitations">RPi GPIO input voltage and output current limitations</h2><div class="level2">
+<p>You should keep the following limitations in mind when using the GPIO pins:
+</p><ul>
+<li class="level1"><div class="li">
+ These are 3.3 volt logic pins.  A voltage near 3.3 V is interpreted as a
+ logic one while a voltage near zero volts is a logic zero.  A GPIO pin 
+should never be connected to a voltage source greater than 3.3V or less 
+than 0V, as prompt damage to the chip may occur as the input pin 
+substrate diodes<sup><a href="#fn__25" id="fnt__25" rel="nofollow" class="fn_top">25)</a></sup>
+ conduct.  There may be times when you may need to connect them to 
+out-of-range voltages – in those cases the input pin current must be 
+limited by an external resistor to a value that prevents harm to the 
+chip.  I recommend that you never source or sink more than 0.5 mA into 
+an input pin.
+</div></li>
+<li class="level1"><div class="li">
+ To prevent excessive power dissipation in the chip, you should not 
+source/sink more current from the pin than its programmed limit.  So, if
+ you have set the current capability to 2 mA, do not draw more than 2 mA
+ from the pin.  
+</div></li>
+<li class="level1"><div class="li">
+ Never demand that any output pin source or sink more than 16 mA.
+</div></li>
+<li class="level1"><div class="li">
+ Current sourced by the outputs is drawn from the 3.3 V supply, which 
+can supply only 50 mA maximum.  Consequently, the maximum you can source
+ from all the GPIO outputs simultaneously is less than 50 mA.  You may 
+be able to draw transient currents beyond that limit as they are drawn 
+from the bypass capacitors on the 3.3 V rail, but don't push the 
+envelope!  There isn't a similar limitation on sink current.  You can 
+sink up to 16 mA each into any number of GPIO pins simultaneously.  
+However, transient sink currents do make demands on the board's bypass 
+capacitors, so you may get into trouble if all outputs switch their 
+maximum current synchronously.
+</div></li>
+<li class="level1"><div class="li">
+ Do not drive capacitive loads.  Do not place a capacitive load directly
+ across the pin.  Limit current into any capacitive load to a maximum 
+transient current of 16 mA.  For example, if you use a low pass filter 
+on an output pin, you must provide a series resistance of at least 
+3.3V/16mA = 200 Ω.
+</div></li>
+</ul>
+
+<a class="backtotop" href="#dokuwiki__top" rel="nofollow" onclick="window.scrollTo(0, 0)" title="Back to top">&nbsp;</a></div>
+
+<h2 class="sectionedit6" id="gpio-power-on-state">GPIO power-on state</h2><div class="level2">
+<p>The Raspberry Pi's Broadcom SoC does its own power-on initializations
+ of its GPIO pins.  However, these initializations may be undone or 
+modified by the kernel's startup software.
+</p><a class="backtotop" href="#dokuwiki__top" rel="nofollow" onclick="window.scrollTo(0, 0)" title="Back to top">&nbsp;</a></div>
+
+<h2 class="sectionedit7" id="raspberry-pi-driver-software-for-configuring-and-setting-gpio-pins">Raspberry Pi driver software for configuring and setting GPIO pins</h2><div class="level2">
+<p>Software for controlling the GPIO pins is readily available.  You can consult the following sources:
+</p><div class="block noimage"><ul>
+<li class="level1"><div class="li">
+ <a href="http://elinux.org/Rpi_Low-level_peripherals" class="urlextern" target="_blank" title="http://elinux.org/Rpi_Low-level_peripherals">RPi Low-level peripherals</a>
+</div></li>
+<li class="level1"><div class="li">
+ <a href="http://www.airspayce.com/mikem/bcm2835/" class="urlextern" target="_blank" title="http://www.airspayce.com/mikem/bcm2835/">GPIO C library</a>
+</div></li>
+<li class="level1"><div class="li">
+ <a href="http://www.raspberrypi-spy.co.uk/2012/05/install-rpi-gpio-python-library/" class="urlextern" target="_blank" title="http://www.raspberrypi-spy.co.uk/2012/05/install-rpi-gpio-python-library/">GPIO python library</a>
+</div></li>
+</ul>
+
+</div><a class="backtotop" href="#dokuwiki__top" rel="nofollow" onclick="window.scrollTo(0, 0)" title="Back to top">&nbsp;</a></div>
+
+<h2 class="sectionedit8" id="gpio-pinout-on-header-p1">GPIO pinout on header P1</h2><div class="level2">
+<p>The GPIO signals and power supplies are brought out to a 26-pin header, designated <em>P1</em> on the PCB's silkscreen.  <em>P1</em> provides two rows of pins, odd and even.  Pin 1 of header <em>P1</em> is the corner pin closest to the <em>P1</em> label.
+</p><div class="note caution shadow"><div class="title">Caution -- Pins are numbered unconventionally</div><div class="content">Note that the orientation of <em>P1</em>
+ differs from the convention used in most connector placement.  On most 
+computer boards the header would be rotated 180°, so that the 
+odd-numbered row would lie alongside the board edge, instead of the 
+even-numbered row.  That way, the wires or ribbon cables running from 
+the edge of the board are numbered from left to right.  The Raspberry Pi
+ board violates the convention, placing its even-numbered rows along the
+ board's edge.  So be careful in making your connections.
+</div></div>
+<p>The following table identifies the signal names delivered to each of the pins of <em>P1</em>, for Rev-1 and Rev-2 boards:
+</p><div class="block center" style="width:28em;"><div class="table sectionedit9"><table class="inline"><tbody><tr class="row0"><th class="col0 centeralign" colspan="4">  P1: 26-pin header  </th></tr><tr class="row1"><th class="col0 rightalign">  Signal </th><th class="col1 centeralign" colspan="2">  Pins  </th><th class="col3 leftalign"> Signal  </th></tr><tr class="row2"><td class="col0 rightalign">          +3.3 V </td><td class="col1 leftalign"> —1  </td><td class="col2 rightalign">   2— </td><td class="col3 leftalign"> +5 V  </td></tr><tr class="row3"><td class="col0 rightalign">  GPIO_02 <em>GPIO_00</em><br>(SDA1) </td><td class="col1 leftalign"> —3  </td><td class="col2 rightalign">   4— </td><td class="col3 leftalign"> +5 V  </td></tr><tr class="row4"><td class="col0 rightalign">    GPIO_03 <em>GPIO_01</em><br>(SCL1) </td><td class="col1 leftalign"> —5  </td><td class="col2 rightalign">   6— </td><td class="col3 leftalign"> GND      </td></tr><tr class="row5"><td class="col0 rightalign">     GPIO_04<br>(GPCLK0) </td><td class="col1 leftalign"> —7  </td><td class="col2 rightalign">   8— </td><td class="col3 leftalign"> GPIO_14<br>(UART0_TxD)  </td></tr><tr class="row6"><td class="col0 rightalign">                    GND </td><td class="col1 leftalign"> —9  </td><td class="col2 rightalign">  10— </td><td class="col3 leftalign"> GPIO_15<br>(UART0_RxD)  </td></tr><tr class="row7"><td class="col0 rightalign">                GPIO_17 </td><td class="col1"> —11 </td><td class="col2 rightalign">  12— </td><td class="col3 leftalign"> GPIO_18<br>(PCM_CLK)  </td></tr><tr class="row8"><td class="col0 rightalign">    GPIO_27 <em>GPIO_21</em> </td><td class="col1"> —13 </td><td class="col2 rightalign">  14— </td><td class="col3 leftalign"> GND      </td></tr><tr class="row9"><td class="col0 rightalign">                GPIO_22 </td><td class="col1"> —15 </td><td class="col2 rightalign">  16— </td><td class="col3 leftalign"> GPIO_23  </td></tr><tr class="row10"><td class="col0 rightalign">          +3.3 V </td><td class="col1"> —17 </td><td class="col2 rightalign">  18— </td><td class="col3 leftalign"> GPIO_24  </td></tr><tr class="row11"><td class="col0 rightalign">  GPIO_10<br>(SPI_0_MOSI) </td><td class="col1"> —19 </td><td class="col2 rightalign">  20— </td><td class="col3 leftalign"> GND      </td></tr><tr class="row12"><td class="col0 rightalign">  GPIO_09<br>(SPI_0_MISO) </td><td class="col1"> —21 </td><td class="col2 rightalign">  22— </td><td class="col3 leftalign"> GPIO_25  </td></tr><tr class="row13"><td class="col0 rightalign">  GPIO_11<br>(SPI_0_SCLK) </td><td class="col1"> —23 </td><td class="col2 rightalign">  24— </td><td class="col3 leftalign"> GPIO_08<br>(SPI_0_CE0_N)  </td></tr><tr class="row14"><td class="col0 rightalign">                    GND </td><td class="col1"> —25 </td><td class="col2 rightalign">  26— </td><td class="col3 leftalign"> GPIO_07<br>(SPI_0_CE1_N)  </td></tr><tr class="row15"><td class="col0 leftalign" colspan="4"> Notes:<br>1. Signals in plain type are for Rev 2 boards,<br>&nbsp;&nbsp;&nbsp; signals for <em>Rev 1</em> boards are shown in <em>italics</em>.<br>2. Primary functions for signals are shown in parentheses.  </td></tr></tbody></table></div>
+</div>
+<p>Notes:
+</p><ul>
+<li class="level1"><div class="li">
+ The signal names used in the above table are the Broadcom chip signal 
+names – these are the names to use when programming the board.  The RPi 
+board provides alternate descriptive names for the same signals, and 
+those names are often confusing.  For example, <code>GPIO_14</code> at the chip is called <code>TXD0</code> at the connector, a name that illustrates its primary function, but, <code>GPIO_17</code> at the chip becomes <code>GPIO_GEN0</code> at the connector, a renaming that can only cause confusion.
+</div></li>
+<li class="level1"><div class="li">
+ All GPIO signals default to inputs except for GPIO_14 and GPIO_15 (on 
+pins 8 and 10), which are configured by default as UART0_TxD and 
+UART0_RxD respectively.
+</div></li>
+<li class="level1"><div class="li">
+ You may draw no more than 50 mA from the +3.3 V supply.
+</div></li>
+<li class="level1"><div class="li">
+ The board uses approximately 700 mA from the +5 V supply.  You may draw
+ current from the +5 V pins provided the sum of your current and the 
+board's 700 mA can be provided by the supply you provide to the board.
+</div></li>
+<li class="level1"><div class="li">
+ You may deliver power to the board through header <em>P1</em> at pins 2 or 4 as well as delivering it to the microUSB socket, except that power delivered through <em>P1</em> bypasses the 1.1 A PolySwitch resettable fuse.
+</div></li>
+<li class="level1"><div class="li">
+ Pins 3 and 5 are pulled up on the board to the 3.3V supply by 1.8 KΩ resistors to enable them to be used easily as <a href="http://www.mosaic-industries.com/embedded-systems/sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/microcontroller-i2c-bus" class="wikilink1" title="sbc-single-board-computers:freescale-hcs12-9s12-c-language:instrument-control:microcontroller-i2c-bus">I2C communication</a> pins.
+</div></li>
+</ul>
+
+<a class="backtotop" href="#dokuwiki__top" rel="nofollow" onclick="window.scrollTo(0, 0)" title="Back to top">&nbsp;</a></div>
+
+<h3 class="sectionedit10" id="finding-your-board-s-revision-number">Finding your board's revision number</h3><div class="level3">
+<p>To determine the revision number for your board you can execute the following command from a prompt in a terminal window,
+</p><pre class="code">cat /proc/cpuinfo</pre>
+<p>If the <code>cpuinfo</code> number begins with <code>1000</code> then
+ your Raspberry Pi has been over-voltaged or over-clocked (which 
+permanently flips a write-once memory bit in the processor).  Your 
+hardware revision is simply the last 4 digits of the number (i.e. 0002 
+in this example).
+</p>
+<p>You can find a table associating the <code>cpuinfo</code> number and the board revision at the <a href="http://elinux.org/RPi_HardwareHistory#Board_Revision_History" class="urlextern" target="_blank" title="http://elinux.org/RPi_HardwareHistory#Board_Revision_History">eLinux wiki</a><sup><a href="#fn__26" id="fnt__26" rel="nofollow" class="fn_top">26)</a></sup>, which is reproduced here for your convenience as the following table.
+</p><div class="block indent2"><div class="table sectionedit11"><table class="inline"><tbody><tr class="row0"><th class="col0 centeralign">  <code>cupinfo</code><br><code>number</code>  </th><th class="col1 centeralign">  Release<br>Date  </th><th class="col2 centeralign">  Model  </th><th class="col3 centeralign">  PCB<br>Revision  </th><th class="col4 centeralign">  Memory  </th><th class="col5 leftalign"> Notes  </th></tr><tr class="row1"><td class="col0 centeralign">  Beta  </td><td class="col1 centeralign">  Q1 2012  </td><td class="col2 centeralign">  B (Beta)  </td><td class="col3 centeralign">  ?  </td><td class="col4 centeralign">  256MB  </td><td class="col5 leftalign"> Beta Board  </td></tr><tr class="row2"><td class="col0 centeralign">  0002  </td><td class="col1 centeralign">  Q1 2012  </td><td class="col2 centeralign">  B  </td><td class="col3 centeralign">  1.0  </td><td class="col4 centeralign">  256MB  </td><td class="col5 leftalign">   </td></tr><tr class="row3"><td class="col0 centeralign">  0003  </td><td class="col1 centeralign">  Q3 2012  </td><td class="col2 centeralign">  B  </td><td class="col3 centeralign">  1.0/ECN0001  </td><td class="col4 centeralign">  256MB  </td><td class="col5 leftalign"> no fuses and D14 removed  </td></tr><tr class="row4"><td class="col0 centeralign">  0004  </td><td class="col1 centeralign">  Q3 2012  </td><td class="col2 centeralign">  B  </td><td class="col3 centeralign">  2.0  </td><td class="col4 centeralign">  256MB  </td><td class="col5 leftalign"> Mfg by Sony   </td></tr><tr class="row5"><td class="col0 centeralign">  0005  </td><td class="col1 centeralign">  Q4 2012  </td><td class="col2 centeralign">  B  </td><td class="col3 centeralign">  2.0  </td><td class="col4 centeralign">  256MB  </td><td class="col5 leftalign"> Mfg by Qisda  </td></tr><tr class="row6"><td class="col0 centeralign">  0006  </td><td class="col1 centeralign">  Q4 2012  </td><td class="col2 centeralign">  B  </td><td class="col3 centeralign">  2.0  </td><td class="col4 centeralign">  256MB  </td><td class="col5"> Mfg by Egoman </td></tr><tr class="row7"><td class="col0 centeralign">  0007  </td><td class="col1 centeralign">  Q1 2013  </td><td class="col2 centeralign">  A  </td><td class="col3 centeralign">  2.0  </td><td class="col4 centeralign">  256MB  </td><td class="col5"> Mfg by Egoman </td></tr><tr class="row8"><td class="col0 centeralign">  0008  </td><td class="col1 centeralign">  Q1 2013  </td><td class="col2 centeralign">  A  </td><td class="col3 centeralign">  2.0  </td><td class="col4 centeralign">  256MB  </td><td class="col5 leftalign"> Mfg by Sony   </td></tr><tr class="row9"><td class="col0 centeralign">  0009  </td><td class="col1 centeralign">  Q1 2013  </td><td class="col2 centeralign">  A  </td><td class="col3 centeralign">  2.0  </td><td class="col4 centeralign">  256MB  </td><td class="col5 leftalign"> Mfg by Qisda  </td></tr><tr class="row10"><td class="col0 centeralign">  000d  </td><td class="col1 centeralign">  Q4 2012  </td><td class="col2 centeralign">  B  </td><td class="col3 centeralign">  2.0  </td><td class="col4 centeralign">  512MB  </td><td class="col5"> Mfg by Egoman </td></tr><tr class="row11"><td class="col0 centeralign">  000e  </td><td class="col1 centeralign">  Q4 2012  </td><td class="col2 centeralign">  B  </td><td class="col3 centeralign">  2.0  </td><td class="col4 centeralign">  512MB  </td><td class="col5 leftalign"> Mfg by Sony   </td></tr><tr class="row12"><td class="col0 centeralign">  000f  </td><td class="col1 centeralign">  Q4 2012  </td><td class="col2 centeralign">  B  </td><td class="col3 centeralign">  2.0  </td><td class="col4 centeralign">  512MB  </td><td class="col5 leftalign"> Mfg by Qisda  </td></tr></tbody></table></div>
+</div>
+<p>For further information on the electrical specifications of the GPIO pins see:
+</p><ul>
+<li class="level1"><div class="li">
+ <a href="http://www.scribd.com/doc/101830961/GPIO-Pads-Control2" class="urlextern" target="_blank" title="http://www.scribd.com/doc/101830961/GPIO-Pads-Control2">GPIO Datasheet Addendum - GPIO Pads</a>
+</div></li>
+</ul>
+
+
+<p>And for more, and possibly more up-to-date information on the various hardware revisions of the boards see:
+</p><ul>
+<li class="level1"><div class="li">
+ <a href="http://elinux.org/RPi_HardwareHistory#Board_Revision_History" class="urlextern" target="_blank" title="http://elinux.org/RPi_HardwareHistory#Board_Revision_History">RPi Hardware History</a>
+</div></li>
+</ul>
+
+<hr>
+<div class="block copyright shadow">The content of this page is provided under a<br>  <a href="http://creativecommons.org/licenses/by-sa/3.0/" class="urlextern" target="_blank" title="http://creativecommons.org/licenses/by-sa/3.0/" rel="nofollow">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
+</div><a class="backtotop" href="#dokuwiki__top" rel="nofollow" onclick="window.scrollTo(0, 0)" title="Back to top">&nbsp;</a></div>
+<div class="footnotes">Notes:
+<div class="fn"><div class="fnindex"><a href="#fnt__1" id="fn__1" rel="nofollow" class="fn_bot">1)</a>, <a href="#fnt__4" id="fn__4" rel="nofollow" class="fn_bot">4)</a>, <a href="#fnt__7" id="fn__7" rel="nofollow" class="fn_bot">7)</a>, <a href="#fnt__10" id="fn__10" rel="nofollow" class="fn_bot">10)</a></div><div class="fntext">RealView® Platform Baseboard for ARM1176JZF-S</div></div><div class="fn"><div class="fnindex"><a href="#fnt__2" id="fn__2" rel="nofollow" class="fn_bot">2)</a></div><div class="fntext"><abbr title="Once Motorola, manufacturer of the 68HC11, MC68HC11F1, 9S12, HCS12, MCHCS12, 68HCS12, MC9S12DP512 and MC9S12A512 single chip microcontrollers">Freescale</abbr> MCIMX31 multimedia application processor</div></div><div class="fn"><div class="fnindex"><a href="#fnt__3" id="fn__3" rel="nofollow" class="fn_bot">3)</a>, <a href="#fnt__6" id="fn__6" rel="nofollow" class="fn_bot">6)</a>, <a href="#fnt__9" id="fn__9" rel="nofollow" class="fn_bot">9)</a>, <a href="#fnt__12" id="fn__12" rel="nofollow" class="fn_bot">12)</a>, <a href="#fnt__14" id="fn__14" rel="nofollow" class="fn_bot">14)</a>, <a href="#fnt__15" id="fn__15" rel="nofollow" class="fn_bot">15)</a>, <a href="#fnt__17" id="fn__17" rel="nofollow" class="fn_bot">17)</a>, <a href="#fnt__19" id="fn__19" rel="nofollow" class="fn_bot">19)</a>, <a href="#fnt__21" id="fn__21" rel="nofollow" class="fn_bot">21)</a>, <a href="#fnt__24" id="fn__24" rel="nofollow" class="fn_bot">24)</a></div><div class="fntext">Renasas μPD77630A mobile multimedia processor</div></div><div class="fn"><div class="fnindex"><a href="#fnt__5" id="fn__5" rel="nofollow" class="fn_bot">5)</a>, <a href="#fnt__8" id="fn__8" rel="nofollow" class="fn_bot">8)</a>, <a href="#fnt__11" id="fn__11" rel="nofollow" class="fn_bot">11)</a>, <a href="#fnt__13" id="fn__13" rel="nofollow" class="fn_bot">13)</a>, <a href="#fnt__20" id="fn__20" rel="nofollow" class="fn_bot">20)</a>, <a href="#fnt__22" id="fn__22" rel="nofollow" class="fn_bot">22)</a></div><div class="fntext">Freescale MCIMX31 multimedia application processor</div></div><div class="fn"><div class="fnindex"><a href="#fnt__16" id="fn__16" rel="nofollow" class="fn_bot">16)</a>, <a href="#fnt__18" id="fn__18" rel="nofollow" class="fn_bot">18)</a></div><div class="fntext">0.5*Vcore, Freescale MCIMX31 multimedia application processor</div></div><div class="fn"><div class="fnindex"><a href="#fnt__23" id="fn__23" rel="nofollow" class="fn_bot">23)</a></div><div class="fntext">At the processor, discounting <abbr title="Printed Circuit Board, Mosaic's PCBs are generally FR4, 0.062&quot; thick, solder masked (SMOBC), tented vias, RoHS &amp; 94V-0.">PCB</abbr>
+ trace and connector capacitances; including those may double or triple 
+this value.  RealView® Platform Baseboard for ARM1176JZF-S</div></div><div class="fn"><div class="fnindex"><a href="#fnt__25" id="fn__25" rel="nofollow" class="fn_bot">25)</a></div><div class="fntext">actually parasitic FETs, shown as diodes in <a href="#fig1" class="wikilink1" title="microcontroller-projects:raspberry-pi:gpio-pin-electrical-specifications ↵">Figure 1</a></div></div><div class="fn"><div class="fnindex"><a href="#fnt__26" id="fn__26" rel="nofollow" class="fn_bot">26)</a></div><div class="fntext">Please consult <a href="http://elinux.org/RPi_HardwareHistory#Board_Revision_History" class="urlextern" target="_blank" title="http://elinux.org/RPi_HardwareHistory#Board_Revision_History">eLinux wiki</a> for up-to-date info on RPi revisions.</div></div></div><div class="clearer"></div>
+
+<div class="pgabout llcolor">This page is about: GPIO Electrical 
+Specifications, Raspberry Pi Input and Output Pin Voltage and Current 
+Capability – The Raspberry Pi provides general purpose digital 
+input/output pins (called GPIO pins) that you can use for reading 
+digital logic signals or for outputting digital logic levels. The 
+outputs do not have much current capability, but you can drive LEDs or …</div>
+</article>
+<div class="clearer">&nbsp;</div>
+</div>
+</div>
+<div class="backtotop"><a class="backtotop" onclick="window.scrollTo(0, 0)"></a>
+   <div class="linkcolor" style="float:left;margin-top:-5px;"><a class="wikilink1" onclick="window.scrollTo(0, 0)">Back&nbsp;to&nbsp;top&nbsp;</a></div></div>
+<div id="m__pgname"><a href="http://www.mosaic-industries.com/embedded-systems/site-map" title="Index to all documents, tutorials, and user guides" target="_blank">Index to all documents, tutorials, and user guides</a></div><div id="tlbr__cntnr">
+<div class="tlbr"><div class="tlbrr">
+<a href="http://www.mosaic-industries.com/embedded-systems/dokuwiki/help-for-readers/microcontroller" class="icn-help" title="Help" rel="nofollow" target="_blank"></a><a href="http://www.mosaic-industries.com/embedded-systems/tpl_discussion" class="icn-comment" title="Comment, ask questions, leave feedback" rel="nofollow" target="_blank"></a><a class="icn-vertbar"></a>
+<a href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications?do=print_preview" class="icn-print" title="Show a printer friendly page" rel="nofollow" target="_blank"></a><a href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications?do=backlink" class="action backlink" accesskey="" rel="nofollow" title="Show links to this page"> </a></div>
+<nav class="tlbrl">
+<a id="leftcolopenclosebtn" class="btn-move-left" title="Hide the left sidebars"></a>
+<a class="icn-vertbar"></a><a href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/microcontroller" class="action back" accesskey="b" rel="nofollow" title="Go up to: Raspberry Pi"> </a><a class="icn-vertbar"></a>
+<a class="icn-firstpage" title="Overview of documents: Raspberry Pi" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/microcontroller"></a>
+<a class="icn-priorpage" title="Previous document: Raspberry Pi" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/microcontroller" rel="prev"></a>
+<a class="icn-nextpage" title="Next document: Raspberry Pi ON/OFF Power Controller" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/on-off-power-controller" rel="next"></a>
+<a class="icn-lastpage" title="Last document: Raspberry Pi ON/OFF Power Controller" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/on-off-power-controller"></a>
+</nav></div></div>
+<div class="sharebtn"><div class="gplusone"><div id="___plusone_1" style="text-indent: 0px; margin: 0px; padding: 0px; background: transparent none repeat scroll 0% 0%; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 24px; height: 15px;"><iframe title="+1" data-gapiattached="true" src="GPIO%20Electrical%20Specifications_files/fastbutton_002.html" name="I1_1433960787304" id="I1_1433960787304" vspace="0" tabindex="0" style="position: static; top: 0px; width: 24px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 15px;" scrolling="no" marginwidth="0" marginheight="0" hspace="0" frameborder="0" width="100%"></iframe></div></div></div></div></div></div>
+<div id="left__col" style="display: block; width: 224px;">
+<div class="sbar rounded tinted __tpl_navigation" style="margin-top:0;"><div class="tglclose" title="Hide" onclick="toggleVisibility(this)"><div>&nbsp;</div>Navigation</div><div style="display:block"><nav class="sb">
+
+<div class="level1"><div class="block" style="margin-top:.5em;padding-left:4px;width:100%;padding-bottom:3px"><span class="inline action16 imglink book"><strong><span class="curid"><a href="http://www.mosaic-industries.com/embedded-systems/microcontroller" class="wikilink1" title="User manuals and technical support" rel="nofollow">DocWeb Home Page</a></span></strong></span>
+</div><div class="block" style="position:relative;top:-.4em;padding-left:20px;width:100%;padding-top:5px;padding-bottom:3px;border-bottom:1px solid;margin-bottom:-.5em;"><span class="inline file16 imglink txt"><strong><a href="http://www.mosaic-industries.com/embedded-systems/using-the-docweb" class="wikilink1" title="How to use these technical support pages" rel="nofollow">Using this DocWeb</a></strong></span>
+</div>
+<table class="indexmenu_table"><tbody><tr><td><div style="display: none;" id="nojs_indexmenu_10129169765577566196ca0" class="indexmenu_nojs">
+
+<ul class="idx">
+<li class="closed"><div class="li"><a href="http://www.mosaic-industries.com/embedded-systems/sbc-single-board-computers/microcontroller" class="indexmenu_idx_head" rel="nofollow">Single Board Computers</a></div></li>
+<li class="closed"><div class="li"><a href="http://www.mosaic-industries.com/embedded-systems/gui-user-interface/microcontroller" class="indexmenu_idx_head" rel="nofollow">GUI/Touchscreen Controllers</a></div></li>
+<li class="closed"><div class="li"><a href="http://www.mosaic-industries.com/embedded-systems/sbc-single-board-computers-instrument-development-kits-new-product-design/microcontroller" class="indexmenu_idx_head" rel="nofollow">Starter Kits</a></div></li>
+<li class="closed"><div class="li"><a href="http://www.mosaic-industries.com/embedded-systems/modular-power-io-panels/microcontroller" class="indexmenu_idx_head" rel="nofollow">Docking Panels</a></div></li>
+<li class="closed"><div class="li"><a href="http://www.mosaic-industries.com/embedded-systems/instrumentation/microcontroller" class="indexmenu_idx_head" rel="nofollow">Modular I/O Boards</a></div></li>
+<li class="closed"><div class="li"><a href="http://www.mosaic-industries.com/embedded-systems/electronic-instrument-design-new-product-development/microcontroller" class="indexmenu_idx_head" rel="nofollow">Accessories</a></div></li>
+<li class="closed"><div class="li"><a href="http://www.mosaic-industries.com/embedded-systems/c-ide-software-development/microcontroller" class="indexmenu_idx_head" rel="nofollow">Development Software</a></div></li>
+<li class="closed"><div class="li"><a href="http://www.mosaic-industries.com/embedded-systems/c-tutorial/microcontroller" class="indexmenu_idx_head" rel="nofollow">Software Examples</a></div></li>
+<li class="closed"><div class="li"><a href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/microcontroller" class="indexmenu_idx_head" rel="nofollow">App Notes &amp; Toolkits</a></div></li>
+<li class="closed"><div class="li"><a href="http://www.mosaic-industries.com/embedded-systems/legacy-products/microcontroller" class="indexmenu_idx_head" rel="nofollow">Legacy Products</a></div></li></ul>
+</div>
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var indexmenu_10129169765577566196ca0 = new dTree('indexmenu_10129169765577566196ca0','default');
+indexmenu_10129169765577566196ca0.config.urlbase='/embedded-systems/';
+indexmenu_10129169765577566196ca0.config.sepchar='/';
+indexmenu_10129169765577566196ca0.config.useCookies=false;
+indexmenu_10129169765577566196ca0.config.jsajax='%26msort%3Dindexmenu_n%26nsort%3D1';
+indexmenu_10129169765577566196ca0.add('',0,-1,'Welcome to Mosaic Documentation Web','microcontroller');
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers',1,0,'Single Board Computers','sbc-single-board-computers/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language',2,1,'PDQ Board','sbc-single-board-computers/freescale-hcs12-9s12-c-language/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/mc9s12a512-mc9s12dp512-datasheets',3,2,'Freescale HCS12 9S12 Datasheets','sbc-single-board-computers/freescale-hcs12-9s12-c-language/mc9s12a512-mc9s12dp512-datasheets/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control',4,2,'PDQ Board Users Guide','sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/microcontroller-projects',5,4,'Overview of Hardware and Software',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/microcontroller-design',6,4,'Getting to Know Your Hardware',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/modular-power-supply',7,4,'Using Your Docking Panel',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/gnu-c-compiler-ide',8,4,'Installing and Connecting to PDQ Board',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/c-application-programming',9,4,'Your First C Program Using Mosaic IDE Plus',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/c-compiler-programming',10,4,'Writing and Compiling Programs',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/c-compile-edit-debug',11,4,'Mosaic IDE Plus',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/c-debugger',12,4,'Debugging Programs',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/microcontroller-memory-map-eeprom-flash-ram',13,4,'Using Paged Memory',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/real-time-operating-system-rtos',14,4,'Task Switching and Time Keeping',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/isr-interrupt-service-routines',15,4,'Interrupt Service Routines',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/microcontroller-autostart-application',16,4,'Loading Your Program into Memory',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/paged-ram-flash-nonvolatile',17,4,'Storing and Accessing Data in Paged RAM and Flash',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/eeprom-lifetime-reliability-wear-leveling',18,4,'EEPROM Reliability and Wear Leveling',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/watchdog-timer-reset',19,4,'Failure and Run-Time Error Recovery',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/digital-i-o',20,4,'Digital I/O - Reading and Writing',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/interfacing-hardware-digital-io',21,4,'Digital I/O - Hardware Interfacing',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/pulse-width-modulation-pwm-motor-control',22,4,'Pulse Width Modulated I/O',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/microcontroller-input-capture-output-compare-pwm-pulse-counter-frequency-meter',23,4,'Timer-Controlled I/O',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/analog-data-acquisition-10-bit-adc',24,4,'Data Acquisition Using Analog to Digital Conversion',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/rs232-serial-rs485-protocol-uart-usart',25,4,'Serial Communications',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/rs232-serial-rs485-protocol-uart-usart-buffered',26,4,'Using Queued Serial',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/software-uart-serial',27,4,'Implementing Logic-Level Serial Ports',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/spi-serial-peripheral-interface',28,4,'Serial Peripheral Interface (SPI)',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/microcontroller-i2c-bus',29,4,'Inter-IC (IIC, I²C, I2C) Serial Bus',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/i2c-bus-specifications',30,4,'I2C Bus Electrical Specifications',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/microcontroller-rtc-real-time-clock-battery',31,4,'Using Battery-Backed Calendar Time Clock',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/microcontroller-c-coding-c-example-program',32,4,'A Turnkeyed C Application Program',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/microcontroller-forth-language',33,4,'A Brief Introduction to Forth Programming',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/forth-language-program-development',34,4,'Advanced Forth Programming Topics',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/forth-real-time-operating-system',35,4,'Multitasking in Forth',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/microcontroller-forth-language-forth-example-program',36,4,'A Turnkeyed Forth Application Program',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/paged-memory-code-relocation',37,4,'For Experts: Compilation and Segment Management',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/microcontroller-specifications',38,4,'Appendix A: PDQ Board (9S12 HCS12) Electrical Specifications',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/input-output-connectors',39,4,'Appendix B: Connector Pinouts',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/microcontroller-schematics',40,4,'Appendix C: Schematics',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/programming-tips',41,4,'Checklist',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/compiler-error-messages',42,4,'Error Messages',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/instrument-control/faq',43,4,'FAQ, Frequently Asked Questions',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/hcs12-9s12-an-introduction-to-software-and-hardware-interfacing',44,2,'PDQ Board Overview',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/measurement-control-i-o-cards',45,2,'Compatible Accessories',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/freescale-hcs12-9s12-c-language/mc9s12dp512-microcontroller-schematic',46,2,'The MC9S12A512 Processor',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/hcs12-9s12-freescale-development-board',47,1,'PDQ Board Lite','sbc-single-board-computers/hcs12-9s12-freescale-development-board/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/hcs12-9s12-freescale-development-board/microcontroller-projects',48,47,'Overview and Specifications',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/hcs12-9s12-freescale-development-board/microcontroller-design',49,47,'Getting to Know Your Hardware',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/hcs12-9s12-freescale-development-board/c-application-programming',50,47,'Programming PDQ Board Lite',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/hcs12-9s12-freescale-development-board/on-chip-memory-map',51,47,'Memory Allocation',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/hcs12-9s12-freescale-development-board/connector-pinouts',52,47,'Connector Pinouts',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language',53,1,'QCard Controller','sbc-single-board-computers/68hc11-c-language/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control',54,53,'QCard Users Guide','sbc-single-board-computers/68hc11-c-language/instrument-control/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/microcontroller-projects',55,54,'Getting to Know Your QCard Controller',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/modular-power-supply',56,54,'Using Your PowerDock',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/c-application-programming',57,54,'Your First Program',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/microcontroller-memory-map-eeprom-flash-ram',58,54,'An Introduction to Extended Memory',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/real-time-operating-system-rtos',59,54,'An Introduction to Multitasking',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/c-language-embedded-integrated-development-environment',60,54,'Using IDE',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/microcontroller-paged-memory-eeprom-flash-ram',61,54,'Making Effective Use of Memory',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/real-time-multitasking-controllers-task-switching-time-keeping',62,54,'Task Switching and Time Keeping',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/real-time-multitasking-controllers-interrupt-service-routine',63,54,'Interrupt Service Routines',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/watchdog-timer-error-free-applications-low-power-cpu',64,54,'Failure and Run-Time Error Recovery',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/microcontroller-digital-i-o-input-capture-output-compare-pwm-pulse-counter-frequency-meter',65,54,'Digital and Timer-Controlled I/O',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/i-o-pin-electrical-specifications',66,54,'Digital I/O Connections',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/programmable-duty-cycle-pwm-waveform-low-jitter',67,54,'Pulse and PWM Generation Techniques',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/analog-data-acquisition-8-bit-adc',68,54,'Data Acquisition Using Analog to Digital Conversion',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/rs232-rs485-serial-uart',69,54,'Serial Communications',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/microcontroller-rtc-real-time-clock-battery',70,54,'The Battery-Backed Real-Time Clock',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/microcontroller-c-coding-c-example-program',71,54,'A Turnkeyed C Application Program',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/power-microcontroller-specifications',72,54,'Appendix A: QCard Electrical Specifications',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/input-output-connectors',73,54,'Appendix B: Connector Pinouts',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/microcontroller-schematics',74,54,'Appendix C: Schematics',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/instrument-control/board-mechanical-drawings',75,54,'Appendix D: Dimensions and Drawings',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/measurement-control-i-o-cards',76,53,'Compatible Accessories',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers/68hc11-c-language/datasheets',77,53,'M68HC11 Datasheets',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface',78,0,'GUI/Touchscreen Controllers','gui-user-interface/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel',79,78,'QScreen Controller','gui-user-interface/68hc11-lcd-touch-panel/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control',80,79,'QScreen Controller Users Guide','gui-user-interface/68hc11-lcd-touch-panel/instrument-control/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control/microcontroller-product-design-development',81,80,'Getting to Know Your QScreen Controller',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control/c-application-programming',82,80,'Your First Program',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control/c-compiler-editor-ide-program-development',83,80,'The IDE: Writing, Compiling, Downloading and Debugging Programs',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control/microcontroller-paged-memory-eeprom-flash-ram',84,80,'Making Effective Use of Memory',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control/rtos-real-time-operating-system-multitasking-controllers-interrupt-service-routine',85,80,'Real Time Programming',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control/microcontroller-watchdog-timer-reset',86,80,'Failure and Run-Time Error Recovery',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control/microcontroller-digital-i-o-input-capture-output-compare-pwm-pulse-counter-timer-frequency-meter',87,80,'Digital and Timer-Controlled I/O',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control/microcontroller-analog-data-acquisition-8-bit-16-bit-adc',88,80,'Data Acquisition Using Analog to Digital Conversion',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control/spi-rs232-serial-rs485-protocol-uart-usart',89,80,'Serial Communications',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control/microcontroller-rtc-real-time-clock-battery',90,80,'The Battery-Backed Real-Time Clock and Beeper',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control/turnkey-c-application-programming',91,80,'A Turnkeyed Application',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control/microcontroller-specifications',92,80,'Appendix A: QScreen Electrical Specifications',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control/microcontroller-connectors',93,80,'Appendix B: Connector Pinouts',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-control/microcontroller-circuit-schematics',94,80,'Appendix C: Schematics',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/development-tools',95,79,'Development Tools','gui-user-interface/68hc11-lcd-touch-panel/development-tools/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/development-tools/microcontroller-memory-dump',96,95,'Recover QScreen Memory',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/instrument-controllers',97,79,'Compatible Accessories',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/68hc11-lcd-touch-panel/c-library-gui',98,79,'QScreen Software GUI Toolkit Documentation',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd',99,78,'Handheld (Legacy)','gui-user-interface/portable-handheld-computer-lcd/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-control',100,99,'Handheld Users Guide','gui-user-interface/portable-handheld-computer-lcd/instrument-control/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-control/keypad-display-backlight',101,100,'Getting to Know Your Handheld Instrument',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-control/rechargeable-battery-powered-low-power',102,100,'Powering Your Handheld',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-control/c-application-programming',103,100,'Your First Program',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-control/c-compiler-microcontroller-ide',104,100,'The IDE: Writing, Compiling, Downloading and Debugging Programs',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-control/microcontroller-memory-map-eeprom-flash-ram',105,100,'Making Effective Use of Memory',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-control/real-time-operating-system-rtos',106,100,'Real Time Programming',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-control/microcontroller-watchdog-timer-reset',107,100,'Failure and Run-Time Error Recovery',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-control/gui-programming-keypad-graphical-lcd',108,100,'Programming Graphical User Interface',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-control/microcontroller-digital-i-o-input-capture-output-compare-pwm-pulse-counter-frequency-meter',109,100,'Digital and Timer-Controlled I/O',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-control/analog-data-acquisition-8-bit-16-bit-adc',110,100,'Data Acquisition Using Analog to Digital Conversion',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-control/spi-rs232-serial-rs485-protocol-uart-usart',111,100,'Serial Communications',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-control/microcontroller-rtc-real-time-clock-battery',112,100,'Real-Time Clock',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-control/custom-hardware-sensors-mounting',113,100,'Customizing Your Handheld Instrument',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/portable-handheld-computer-lcd/instrument-controllers',114,99,'Compatible Accessories',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen',115,78,'QVGA (Legacy)','gui-user-interface/qvga-lcd-touchscreen/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control',116,115,'QVGA Controller Users Guide','gui-user-interface/qvga-lcd-touchscreen/instrument-control/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/microcontroller-product-design-development',117,116,'Getting to Know Your QVGA Controller',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/c-application-programming',118,116,'Your First Program',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/c-compiler-editor-ide-program-development',119,116,'The IDE: Writing, Compiling, Downloading and Debugging Programs',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/microcontroller-paged-memory-eeprom-flash-ram',120,116,'Making Effective Use of Memory',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/gui-touchscreen-programming-graphical-lcd-gui-toolkit',121,116,'Programming Graphical User Interface',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/rtos-real-time-operating-system-multitasking-controllers-interrupt-service-routine',122,116,'Real Time Programming',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/microcontroller-watchdog-timer-reset-error-recovery',123,116,'Run-Time Error Recovery',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/microcontroller-digital-i-o-input-capture-output-compare-pwm-pulse-width-modulation-pulse-counter-timer',124,116,'Digital and Timer-Controlled I/O',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/microcontroller-analog-data-acquisition-8-bit-16-bit-24-bit-adc',125,116,'Data Acquisition Using Analog to Digital Conversion',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/8-bit-multiplying-dac-audio-digital-to-analog-converter',126,116,'Outputting Voltages with Digital to Analog Conversion',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/spi-rs232-serial-rs485-protocol-uart-usart',127,116,'Serial Communications',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/microcontroller-rtc-real-time-clock-battery',128,116,'Battery-Backed RTC',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/c-application-programming-c-examples',129,116,'A Turnkeyed Application',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/microcontroller-specifications',130,116,'Appendix A: QVGA Electrical Specifications',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/microcontroller-connectors-i-o-pins',131,116,'Appendix B: Connector Pinouts',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/pcb-board-physical-dimensions-mounting',132,116,'Appendix C: Physical Dimensions',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-control/microcontroller-circuit-schematics',133,116,'Appendix D: QVGA Schematics',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/c-library-gui',134,115,'QVGA GUI Toolkit','gui-user-interface/qvga-lcd-touchscreen/c-library-gui/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/c-library-gui/c-function-summary',135,134,'GUI Function Summary',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/c-library-gui/c-functions-reference',136,134,'GUI Function Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('gui-user-interface/qvga-lcd-touchscreen/instrument-operator-interface',137,115,'Compatible Accessories',0,0,0);
+indexmenu_10129169765577566196ca0.add('sbc-single-board-computers-instrument-development-kits-new-product-design',138,0,'Starter Kits','sbc-single-board-computers-instrument-development-kits-new-product-design/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('modular-power-io-panels',139,0,'Docking Panels','modular-power-io-panels/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation',140,0,'Modular I/O Boards','instrumentation/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi',141,140,'Ethersmart-WiFi Software Drivers','instrumentation/lantronix-xport-wiport-ethernet-wifi/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/c-library-firmware',142,141,'Ethernet WiFi Device Driver Library','instrumentation/lantronix-xport-wiport-ethernet-wifi/c-library-firmware/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/c-library-firmware/device-servers-functions',143,142,'EtherSmart/WiFi Function Summary',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/c-library-firmware/c-functions',144,142,'EtherSmart/WiFi Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/c-examples',145,141,'Demos and Examples','instrumentation/lantronix-xport-wiport-ethernet-wifi/c-examples/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/c-examples/webserver-embedded-email-server',146,145,'Ether/WiFi C Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/c-examples/remote-access-control-server',147,145,'C Language Remote Front Panel Demo for QScreen / QVGA Controller',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/c-examples/webserver-dynamic-bar-chart',148,145,'Ether/WiFi Basic Data Visualization in C',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/c-examples/forth-language-webserver-embedded-email',149,145,'Ether/Wifi Forth Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/c-examples/forth-language-remote-access-control-server',150,145,'Forth Remote Front Panel Demo for QScreen / QVGA Controller',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/serial-tcp-ip-lan-wan-network',151,141,'Ethernet-WiFi Device Driver Data Structures',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/tcp-ip-http-internet-protocol',152,141,'Using Embedded Web and Email Servers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/internet-explorer-firefox-chrome-browser',153,141,'Browsing into Remote Device',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/embedded-email-embedded-web-server-firmware',154,141,'Installing Device Drivers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/device-servers-example',155,141,'Installing and Running Example Programs',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/tcp-ip-address-ping',156,141,'Using Example Application',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/tcp-ip-rs232-serial-to-ethernet-to-serial-tunneling',157,141,'Serial Tunneling',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/embedded-email-wireless-smtp-lan-wan',158,141,'Setting up Embedded Email Server',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/dynamic-embedded-webserver-device-webservers',159,141,'Setting-up Dynamic Embedded Web Server',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-wiport-ethernet-wifi/remote-webserver-device-remote-control-access-management',160,141,'Implementing Remote Instrument Front Panel',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-ethernet-device-servers',161,140,'Ethersmart Wildcard','instrumentation/lantronix-xport-ethernet-device-servers/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-ethernet-device-servers/serial-uart-usart-rj45-circuit-schematic',162,161,'EtherSmart Hardware Schematics',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-ethernet-device-servers/compatible-ethx',163,161,'Ethersmart Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-xport-ethernet-device-servers/serial-uart-usart-rj45',164,161,'Installing and Using Your EtherSmart Wildcard',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-wiport-wifi-device-servers',165,140,'WiFi Wildcard','instrumentation/lantronix-wiport-wifi-device-servers/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-wiport-wifi-device-servers/wireless-serial-uart-usart-antenna-circuit-schematic',166,165,'WiFi Wildcard Hardware Schematics',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-wiport-wifi-device-servers/serial-to-ethernet-lan-tcp-ip',167,165,'WiFi Access Point Configuration',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-wiport-wifi-device-servers/serial-to-ethernet-lan-tcp-ip-antenna',168,165,'Installing and Using Your WiFi Wildcard',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-wiport-wifi-device-servers/compatible-wifi',169,165,'WiFi Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/lantronix-wiport-wifi-device-servers/lan-wan-ssid-security',170,165,'WiFi Configuration and Security',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/garmin-gps-board-global-positioning-system-data-logger',171,140,'GPS Wildcard','instrumentation/garmin-gps-board-global-positioning-system-data-logger/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/garmin-gps-board-global-positioning-system-data-logger/gps-functions',172,171,'GPS Function Summary',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/garmin-gps-board-global-positioning-system-data-logger/portable-instruments',173,171,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/garmin-gps-board-global-positioning-system-data-logger/c-library-gps-functions',174,171,'GPS Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/garmin-gps-board-global-positioning-system-data-logger/portable-instrument-control',175,171,'GPS Wildcard User Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/garmin-gps-board-global-positioning-system-data-logger/c-examples',176,171,'GPS C Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/garmin-gps-board-global-positioning-system-data-logger/forth-examples',177,171,'GPS Forth Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/opto-isolated-high-current-driver-digital-output-ssr',178,140,'Power I/O Wildcard','instrumentation/opto-isolated-high-current-driver-digital-output-ssr/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/opto-isolated-high-current-driver-digital-output-ssr/motor-control',179,178,'Power I/O Wildcard User Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/opto-isolated-high-current-driver-digital-output-ssr/instrument-controllers',180,178,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/opto-isolated-high-current-driver-digital-output-ssr/c-examples',181,178,'Power I/O C Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/opto-isolated-high-current-driver-digital-output-ssr/forth-examples',182,178,'Power I/O Forth Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/pulse-width-modulation-pwm-controller-driver-actuator',183,140,'PWM Driver Wildcard','instrumentation/pulse-width-modulation-pwm-controller-driver-actuator/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/pulse-width-modulation-pwm-controller-driver-actuator/circuit-schematic',184,183,'Using PWM Driver Wildcard',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/pulse-width-modulation-pwm-controller-driver-actuator/noise-reduction',185,183,'Preventing PWM Noise',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/pulse-width-modulation-pwm-controller-driver-actuator/high-frequency',186,183,'Using High Frequency PWM',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/pulse-width-modulation-pwm-controller-driver-actuator/pic-microcontroller',187,183,'Using PWM Driver with Other Microcontrollers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/thermocouple-measurement',188,140,'Thermocouple Wildcard','instrumentation/thermocouple-measurement/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/thermocouple-measurement/how-to-guide',189,188,'Thermocouple Measurement Users Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/thermocouple-measurement/c-functions-temperature-measurement',190,188,'Thermocouple Measurement C Functions',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/screw-terminal-blocks',191,140,'Screw Terminal Wildcard','instrumentation/screw-terminal-blocks/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/screw-terminal-blocks/instrument-controllers',192,191,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/screw-terminal-blocks/instrument-control-connections',193,191,'Using Screw Terminal Wildcard',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/rs232-serial-rs485-protocol-uart-usart',194,140,'UART Wildcard','instrumentation/rs232-serial-rs485-protocol-uart-usart/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/rs232-serial-rs485-protocol-uart-usart/instrument-controllers',195,194,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/rs232-serial-rs485-protocol-uart-usart/uart-driver-functions',196,194,'UART Function Summary',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/rs232-serial-rs485-protocol-uart-usart/forth-examples',197,194,'UART Forth Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/rs232-serial-rs485-protocol-uart-usart/instrument-control',198,194,'UART Wildcard User Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/rs232-serial-rs485-protocol-uart-usart/c-library-uart-functions',199,194,'UART Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/rs232-serial-rs485-protocol-uart-usart/c-examples',200,194,'UART C Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/rs232-serial-rs485-protocol-uart-usart/understanding-serial-communications',201,194,'Understanding Serial Communications',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/remote-usb-instrument-usb-data-logger',202,140,'USB Wildcard','instrumentation/remote-usb-instrument-usb-data-logger/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/remote-usb-instrument-usb-data-logger/functions',203,202,'USB Function Summary',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/remote-usb-instrument-usb-data-logger/instrument-controllers',204,202,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/remote-usb-instrument-usb-data-logger/instrument-control',205,202,'USB Wildcard Users Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/remote-usb-instrument-usb-data-logger/c-functions',206,202,'USB Wildcard Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/remote-usb-instrument-usb-data-logger/c-examples',207,202,'USB C Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/remote-usb-instrument-usb-data-logger/forth-examples',208,202,'USB Forth Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/electronic-breadboard-prototyping',209,140,'Prototyping Wildcard','instrumentation/electronic-breadboard-prototyping/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/electronic-breadboard-prototyping/instrument-control',210,209,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/electronic-breadboard-prototyping/instrument-development',211,209,'Prototyping Wildcard User Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/digital-io-card-digital-control-board',212,140,'Digital I/O Wildcard','instrumentation/digital-io-card-digital-control-board/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/digital-io-card-digital-control-board/instrument-control',213,212,'Digital I/O Wildcard Users Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/digital-io-card-digital-control-board/instrument-controllers',214,212,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/digital-io-card-digital-control-board/c-examples',215,212,'Digital I/O C Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/digital-io-card-digital-control-board/forth-examples',216,212,'Digital I/O Forth Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/crydom-dc-opto-isolated-solid-state-relays-ssrs',217,140,'DC Relay Wildcard','instrumentation/crydom-dc-opto-isolated-solid-state-relays-ssrs/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/crydom-dc-opto-isolated-solid-state-relays-ssrs/instrument-control',218,217,'DC Relay Wildcard Users Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/crydom-dc-opto-isolated-solid-state-relays-ssrs/instrument-controllers',219,217,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/crydom-dc-opto-isolated-solid-state-relays-ssrs/c-examples',220,217,'DC Relay C Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/crydom-dc-opto-isolated-solid-state-relays-ssrs/forth-examples',221,217,'DC Relay Forth Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/crydom-ac-opto-isolated-solid-state-relays-ssrs',222,140,'AC Relay Wildcard','instrumentation/crydom-ac-opto-isolated-solid-state-relays-ssrs/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/crydom-ac-opto-isolated-solid-state-relays-ssrs/instrument-control',223,222,'AC Relay Wildcard Users Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/crydom-ac-opto-isolated-solid-state-relays-ssrs/instrument-controllers',224,222,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/crydom-ac-opto-isolated-solid-state-relays-ssrs/c-examples',225,222,'AC Relay C Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/crydom-ac-opto-isolated-solid-state-relays-ssrs/forth-examples',226,222,'AC Relay Forth Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/conductivity-meter',227,140,'Conductivity Sensing Wildcard','instrumentation/conductivity-meter/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/conductivity-meter/microfabricated-planar-interdigitated-electrodes-cell-constant',228,227,'Cell Constant of Interdigitated Electrodes',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/conductivity-meter/calibration-equations',229,227,'Driver Software Equations',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/conductivity-meter/manual-conductance-measurement',230,227,'Stand-alone Operation',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/conductivity-meter/customizing',231,227,'Customizing Your Conductivity Sensing Circuit',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/conductivity-meter/fluid-conductivity-calculation',232,227,'Driver Software',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/conductivity-meter/two-electrode-cell-constant',233,227,'Cell Constant of Parallel Wire Electrodes',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/conductivity-meter/conductance-sensor-probe',234,227,'Conductivity Sensor Specifications',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/conductivity-meter/electrode-surface-area',235,227,'Enhancing Electrode Surface Area',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/conductivity-meter/total-dissolved-solids',236,227,'Measuring Total Dissolved Solids',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/conductivity-meter/measurement-conductance-cell-constant',237,227,'Using Conductivity Sensing Wildcard',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/conductivity-meter/graphite-electrode-cell-constant',238,227,'Cell Constant of Commercial Graphite Probe',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/4-x-20-lcd-display-backlight-keypad',239,140,'Keypad/Display Wildcard','instrumentation/4-x-20-lcd-display-backlight-keypad/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/4-x-20-lcd-display-backlight-keypad/forth-functions',240,239,'Keypad/Display Forth Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/4-x-20-lcd-display-backlight-keypad/instrument-control-front-panel',241,239,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/4-x-20-lcd-display-backlight-keypad/instrument-display',242,239,'Keypad Display Wildcard Users Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/4-x-20-lcd-display-backlight-keypad/c-functions',243,239,'Keypad/Display C Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/4-x-20-lcd-display-backlight-keypad/c-examples',244,239,'Keypad Display C Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/4-x-20-lcd-display-backlight-keypad/forth-examples',245,239,'Keypad Display Forth Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-16-bit-adc-12-bit-dac',246,140,'Analog I/O Wildcard','instrumentation/data-acquisition-16-bit-adc-12-bit-dac/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-16-bit-adc-12-bit-dac/instrument-control',247,246,'Analog I/O Wildcard User Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-16-bit-adc-12-bit-dac/c-library-analog-io',248,246,'Analog I/O C Library',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-16-bit-adc-12-bit-dac/c-examples',249,246,'Analog I/O C Example',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-16-bit-adc-12-bit-dac/forth-examples',250,246,'Analog I/O Forth Example',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-16-bit-adc-12-bit-dac/measurement-and-control',251,246,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-24-bit-adc-analog-front-end',252,140,'DA 24/7 Wildcard','instrumentation/data-acquisition-24-bit-adc-analog-front-end/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-24-bit-adc-analog-front-end/instrument-control',253,252,'24/7 Data Acquisition Wildcard Users Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-24-bit-adc-analog-front-end/c-library',254,252,'24/7 Data Acquisition Wildcard Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-24-bit-adc-analog-front-end/c-examples-bipolar-sample',255,252,'DA 24/7 C Demo 1',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-24-bit-adc-analog-front-end/c-examples-continuous-sampling',256,252,'DA 24/7 C Demo 2',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-24-bit-adc-analog-front-end/c-examples-calibration',257,252,'DA 24/7 C Demo 3',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-24-bit-adc-analog-front-end/forth-examples-bipolar-sample',258,252,'DA 24/7 Forth Demo 1',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-24-bit-adc-analog-front-end/forth-examples-multiple-samples',259,252,'DA 24/7 Forth Demo 2',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-24-bit-adc-analog-front-end/forth-examples-calibration',260,252,'DA 24/7 Forth Demo 3',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-24-bit-adc-analog-front-end/measurement-and-control',261,252,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-signal-conditioning-analog-filter-protection',262,140,'I/O Filter Wildcard','instrumentation/data-acquisition-signal-conditioning-analog-filter-protection/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-signal-conditioning-analog-filter-protection/analog-front-end',263,262,'I/O Filter Wildcard User Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-signal-conditioning-analog-filter-protection/measurement-and-control',264,262,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/2x16-4x20-lcd-serial-displays-backlight',265,140,'Serial LCD Character Displays','instrumentation/2x16-4x20-lcd-serial-displays-backlight/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-signal-conditioning-amplifier-4-20-ma',266,140,'Signal Conditioning Wildcard','instrumentation/data-acquisition-signal-conditioning-amplifier-4-20-ma/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-signal-conditioning-amplifier-4-20-ma/analog-front-end',267,266,'Signal Conditioning Wildcard User Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-signal-conditioning-amplifier-4-20-ma/measurement-and-control',268,266,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-data-logging-compact-flash-file-system',269,140,'Compact Flash Wildcard','instrumentation/data-acquisition-data-logging-compact-flash-file-system/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-data-logging-compact-flash-file-system/instrument-controllers',270,269,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-data-logging-compact-flash-file-system/fat-file-system-instrument-control',271,269,'Compact Flash Wildcard Users Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-data-logging-compact-flash-file-system/c-functions-compact-flash-fat-file-system',272,269,'Compact Flash Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-data-logging-compact-flash-file-system/c-examples',273,269,'Compact Flash C Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/data-acquisition-data-logging-compact-flash-file-system/forth-examples',274,269,'Compact Flash Forth Demo',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/motor-control',275,140,'Motor Control Wildcard','instrumentation/motor-control/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/motor-control/quick-start',276,275,'Quick Start',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/motor-control/user-guide',277,275,'User&#039;s Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/motor-control/stand-alone-operation',278,275,'Stand-Alone Operation',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/motor-control/rpi-operation',279,275,'Raspberry Pi Operation',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/motor-control/c-functions',280,275,'Driver Software',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/motor-control/pi-control',281,275,'Understanding PI Controller',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/motor-control/useful-motors-encoders',282,275,'Typical Motor Specifications',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/thorlabs-meadowlark-lcvr-liquid-crystal-variable-retarder-controller',283,140,'LCVR Driver','instrumentation/thorlabs-meadowlark-lcvr-liquid-crystal-variable-retarder-controller/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/thorlabs-meadowlark-lcvr-liquid-crystal-variable-retarder-controller/specifications',284,283,'LCVR Controller Specifications',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/thorlabs-meadowlark-lcvr-liquid-crystal-variable-retarder-controller/lc-driver-manual',285,283,'Using LCVR Driver',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/thorlabs-meadowlark-lcvr-liquid-crystal-variable-retarder-controller/board-connectors',286,283,'OEM LCVR Board Dimensions',0,0,0);
+indexmenu_10129169765577566196ca0.add('instrumentation/stacking-mezzanine-boards',287,140,'Wildcard Bus Loading Limits',0,0,0);
+indexmenu_10129169765577566196ca0.add('electronic-instrument-design-new-product-development',288,0,'Accessories','electronic-instrument-design-new-product-development/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('electronic-instrument-design-new-product-development/power-supplies',289,288,'Power Supplies','electronic-instrument-design-new-product-development/power-supplies/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('electronic-instrument-design-new-product-development/touchscreen-protectors',290,288,'Screen Protector','electronic-instrument-design-new-product-development/touchscreen-protectors/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('electronic-instrument-design-new-product-development/touchscreen-protectors/instrument-control-front-panel',291,290,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('electronic-instrument-design-new-product-development/physical-dimensions',292,288,'Board Dimensions and Mounting','electronic-instrument-design-new-product-development/physical-dimensions/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('electronic-instrument-design-new-product-development/environmental-gaskets',293,288,'Environmental Gaskets','electronic-instrument-design-new-product-development/environmental-gaskets/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('electronic-instrument-design-new-product-development/environmental-gaskets/instrument-enclosures',294,293,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('electronic-instrument-design-new-product-development/enclosures',295,288,'Enclosures','electronic-instrument-design-new-product-development/enclosures/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('electronic-instrument-design-new-product-development/enclosures/nema-4x-enclosure',296,295,'NEMA-4X Enclosure',0,0,0);
+indexmenu_10129169765577566196ca0.add('electronic-instrument-design-new-product-development/enclosures/instrument-control',297,295,'Compatible Controllers',0,0,0);
+indexmenu_10129169765577566196ca0.add('electronic-instrument-design-new-product-development/enclosures/black-anodized-aluminum-bezels',298,295,'Black Anodized Aluminum Bezels',0,0,0);
+indexmenu_10129169765577566196ca0.add('electronic-instrument-design-new-product-development/cables',299,288,'Cables','electronic-instrument-design-new-product-development/cables/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('electronic-instrument-design-new-product-development/cables/ribbon-cable-current-rating',300,299,'Ribbon Cable Current Rating',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development',301,0,'Development Software','c-ide-software-development/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler',302,301,'Mosaic IDE','c-ide-software-development/c-compiler/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v44',303,302,'Forth V4.4x (QCard, QScreen) Language Reference','c-ide-software-development/c-compiler/forth-library-v44/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v44/forth-functions-assembler',304,303,'Forth V4.4 Assembler Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v44/68hc11-functions',305,303,'Forth V4.4 Function Summary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v44/forth-functions',306,303,'Forth V4.4 Function Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v44/forth-words-a-d',307,303,'Forth V4.4 Function Glossary (!-A-D)',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v44/forth-words-e-o',308,303,'Forth V4.4 Function Glossary (E-O)',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v44/forth-words-p-z',309,303,'Forth V4.4 Function Glossary (P-Z-})',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v44/forth-words-source-code',310,303,'Forth V4.4 Source-form Functions',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v44/68hc11-interrupts',311,303,'Forth V4.4 Functions that Disable Interrupts',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v44/c-functions-debugger',312,303,'Forth V4.4 Functions for C Debugging',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v44/68hc11-new-functions',313,303,'Forth V4.4 Changes from Prior Kernels',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v4',314,302,'Forth V4.0x/V4.2x (QED-4) Language Reference','c-ide-software-development/c-compiler/forth-library-v4/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v4/forth-functions',315,314,'Forth V4.0/V4.2 Function Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v4/forth-words-source-code',316,314,'Forth V4.0/V4.2 Source-form Functions',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v4/forth-functions-assembler',317,314,'Forth V4.0/V4.2 Assembler Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v4/68hc11-interrupts',318,314,'Forth V4.0/V4.2 Functions that Disable Interrupts',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v4/68hc11-functions',319,314,'Forth V4.0/V4.2 Function Summary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/forth-library-v4/c-functions-debugger',320,314,'Forth V4.0/V4.2 Functions for C Debugging',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/c-library-v44',321,302,'C V4.4x (QCard, QScreen) Language Reference','c-ide-software-development/c-compiler/c-library-v44/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/c-library-v44/c-functions',322,321,'C V4.4 Function Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/c-library-v44/68hc11-functions',323,321,'C V4.4 Function Summary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/c-library-v44/c-functions-debugger',324,321,'C V4.4 Interactive Debugger Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/c-library-v4',325,302,'C V4.0x/V4.2x (QED-4) Language Reference','c-ide-software-development/c-compiler/c-library-v4/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/c-library-v4/c-functions',326,325,'C V4.0/V4.2 Function Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/c-library-v4/68hc11-functions',327,325,'C V4.0/V4.2 Function Summary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/c-library-v4/c-functions-debugger',328,325,'C V4.0/V4.2 Interactive Debugger Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/v441-kernel-code',329,302,'Kernel V4.41 Upgrade',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/68hc11-programming-tips',330,302,'Tips and Tricks',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/68hc11-c-makefile-c-linker',331,302,'Custom Makefile',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/bugs',332,302,'Bugs and Gotchas',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/c-compiler/libraries',333,302,'Kernel Extensions',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/forth-language',334,301,'Forth Language','c-ide-software-development/forth-language/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/forth-language/stack',335,334,'Stack Symbols &amp; Naming Conventions',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/forth-language/assembler',336,334,'Using Forth Assembler',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler',337,301,'Mosaic IDE Plus','c-ide-software-development/codeblocks-gnu-c-gcc-compiler/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/forth-library-hcs12-9s12',338,337,'Forth Language Reference','c-ide-software-development/codeblocks-gnu-c-gcc-compiler/forth-library-hcs12-9s12/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/forth-library-hcs12-9s12/forth-functions-assembler',339,338,'Forth V6 Assembler Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/forth-library-hcs12-9s12/interrupts',340,338,'Functions that Disable Interrupts',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/forth-library-hcs12-9s12/forth-function-list',341,338,'Forth Function List',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/forth-library-hcs12-9s12/forth-function-library',342,338,'Forth V6 Function Summary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/forth-library-hcs12-9s12/c-functions-debugger',343,338,'Forth V6 Functions for C Debugging',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/forth-library-hcs12-9s12/new-functions',344,338,'Forth V6 New Features',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/forth-library-hcs12-9s12/forth-words',345,338,'Forth V6 Function Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/forth-library-hcs12-9s12/forth-words-a-d',346,338,'Forth V6 Function Glossary (!-A-D)',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/forth-library-hcs12-9s12/forth-words-e-o',347,338,'Forth V6 Function Glossary (E-O)',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/forth-library-hcs12-9s12/forth-words-p-z',348,338,'Forth V6 Function Glossary (P-Z-})',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/c-library-hcs12-9s12',349,337,'C Language Reference','c-ide-software-development/codeblocks-gnu-c-gcc-compiler/c-library-hcs12-9s12/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/c-library-hcs12-9s12/c-function-summary',350,349,'C Function Summary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/c-library-hcs12-9s12/c-functions',351,349,'C Function Glossary (A-H)',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/c-library-hcs12-9s12/c-functions-io',352,349,'C Function Glossary (I-Q)',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/c-library-hcs12-9s12/c-functions-rtos',353,349,'C Function Glossary (R-Z)',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/c-library-hcs12-9s12/c-functions-debugger',354,349,'Interactive Debugger Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/c-library-hcs12-9s12/stack-space',355,349,'Determining Worst-Case Stack Depth',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/c-library-hcs12-9s12/new-functions',356,349,'Changes from Prior C IDE',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/hcs12-9s12-download',357,337,'1: Using IDE Plus',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/integrated-development-environment',358,337,'2: Setting up Your Project',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/c-code-development',359,337,'3: Coding Your Application',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/paged-memory-variables',360,337,'4: Additional Information for Advanced Users',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/codeblocks-gnu-c-gcc-compiler/bugs',361,337,'Bugs and Gotchas',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/multitasking-real-time-operating-system-rtos',362,301,'Using Multitasking RTOS','c-ide-software-development/multitasking-real-time-operating-system-rtos/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/multitasking-real-time-operating-system-rtos/preemptive-cooperative-task-switching',363,362,'Multitasking Basics',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/multitasking-real-time-operating-system-rtos/c-programming',364,362,'Using Multitasker in C',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/multitasking-real-time-operating-system-rtos/shared-resources',365,362,'Shared Resources',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/multitasking-real-time-operating-system-rtos/semaphores-mailboxes',366,362,'Using Mailboxes in Multitasking C Programs',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/microcontroller-terminal',367,301,'Mosaic Terminal','c-ide-software-development/microcontroller-terminal/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('c-ide-software-development/microcontroller-terminal/microcontroller-command-line',368,367,'Mosaic Terminal Users Guide',0,0,0);
+indexmenu_10129169765577566196ca0.add('c-tutorial',369,0,'Software Examples','c-tutorial/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('c-tutorial/9s12-hcs12-c-programming-examples',370,369,'PDQ Board C Code Examples','c-tutorial/9s12-hcs12-c-programming-examples/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('c-tutorial/68hc11-c-programming-examples',371,369,'QCard C Code Examples','c-tutorial/68hc11-c-programming-examples/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects',372,0,'App Notes &amp; Toolkits','microcontroller-projects/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/measurement-techniques',373,372,'Measurement Techniques','microcontroller-projects/measurement-techniques/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/measurement-techniques/instrumentation-amplifier-ground-loop-isolator',374,373,'Precision Measurement without Ground Offsets',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/stepper-motors',375,372,'Stepper Motor Control','microcontroller-projects/stepper-motors/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/stepper-motors/specifications',376,375,'Stepper Motor Specifications',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/stepper-motors/control-software-driver',377,375,'Controlling Stepper Motors Using Power IO Wildcard',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/stepper-motors/c-functions',378,375,'Stepper Motor Control Function Glossary',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/stepper-motors/forth-c-examples',379,375,'Example Stepper Motor Control Programs',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement',380,372,'Measuring Temperature','microcontroller-projects/temperature-measurement/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/thermocouple',381,380,'Using Thermocouples','microcontroller-projects/temperature-measurement/thermocouple/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/thermocouple/types-wire-element',382,381,'Thermocouple Types',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/thermocouple/calibration-table',383,381,'Efficient Thermocouple Calibration and Measurement',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/thermocouple/type-b-calibration-table',384,381,'Type B Thermocouple Calibration',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/thermocouple/type-e-calibration-table',385,381,'Type E Thermocouple Calibration',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/thermocouple/type-j-calibration-table',386,381,'Type J Thermocouple Calibration',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/thermocouple/type-k-calibration-table',387,381,'Type K Thermocouple Calibration',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/thermocouple/type-n-calibration-table',388,381,'Type N Thermocouple Calibration',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/thermocouple/type-r-calibration-table',389,381,'Type R Thermocouple Calibration',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/thermocouple/type-s-calibration-table',390,381,'Type S Thermocouple Calibration',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/thermocouple/type-t-calibration-table',391,381,'Type T Thermocouple Calibration',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/thermocouple/cold-junction-compensation',392,381,'Cold Junction Compensation',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/thermocouple/amplifier-circuit-schematic',393,381,'Connecting Thermocouples',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/thermocouple/thermocouple-noise-filter',394,381,'Thermocouple Noise Filtering',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/platinum-rtd-sensors',395,380,'Using RTDs','microcontroller-projects/temperature-measurement/platinum-rtd-sensors/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/platinum-rtd-sensors/resistance-calibration-table',396,395,'RTD Calibration',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/platinum-rtd-sensors/resistance-accuracy',397,395,'RTD Accuracy and Tolerances',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/platinum-rtd-sensors/noise-filtering',398,395,'Noise Filtering for RTDs',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/platinum-rtd-sensors/amplifier-circuit-schematics',399,395,'Measuring RTDs',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/ntc-thermistors',400,380,'Using Thermistors','microcontroller-projects/temperature-measurement/ntc-thermistors/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/ntc-thermistors/resistance-equation',401,400,'Temperature Resistance Equation',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/ntc-thermistors/circuit-schematics',402,400,'Measuring Thermistors',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/ntc-thermistors/example-code-equations',403,400,'Efficient Thermistor Temperature Computation',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/microchip-tc74-temperature-sensor-datasheet-i2c',404,380,'Using I2C Temperature Sensors',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/temperature-measurement/lm335-lm35-temperature-sensor-ic',405,380,'Using LM335 IC Temperature Sensor',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/measure-distance',406,372,'Measuring Distance','microcontroller-projects/measure-distance/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/measure-distance/sharp-gp2d12-ir-distance-sensor',407,406,'How to Measure Analog Distance Sensor',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/frequency-measurement',408,372,'Measuring Frequency','microcontroller-projects/frequency-measurement/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/frequency-measurement/9s12-hcs12-pulse-accumulator-c-example',409,408,'Frequency Measurement Using Microcontrollers',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/reducing-emi',410,372,'Reducing EMI','microcontroller-projects/reducing-emi/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/reducing-emi/slew-rate-limiter',411,410,'Slew-Rate Control Reduces EMI',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/circuit-protection',412,372,'Circuit Protection','microcontroller-projects/circuit-protection/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/circuit-protection/atd-inputs',413,412,'A/D Protection Circuits',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/electronic-circuits',414,372,'Electronic Circuits for Instruments','microcontroller-projects/electronic-circuits/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/electronic-circuits/push-button-switch-turn-on',415,414,'Push Button ON/OFF Power Control Using MOSFETs','microcontroller-projects/electronic-circuits/push-button-switch-turn-on/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/electronic-circuits/push-button-switch-turn-on/latching-toggle-power-switch',416,415,'Latch and Toggle Power Circuits',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/electronic-circuits/push-button-switch-turn-on/inrush-current-limited-mosfet',417,415,'Limiting In-rush Current in MOSFET Power Switches',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/electronic-circuits/push-button-switch-turn-on/microcontroller-latching-on-off',418,415,'Controlled Turn-ON and Shutdown of Microcontroller Products',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/electronic-circuits/push-button-switch-turn-on/switching-battery-power',419,415,'Battery Operated Latching Power Switch',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/electronic-circuits/program-regulator-voltage',420,414,'Dynamically Program Voltage Regulators',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/electronic-circuits/step-down-switching-regulator',421,414,'Designing Step-Down (Buck) Switching Regulators',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/electronic-circuits/using-power-mosfets',422,414,'Using Power MOSFETs',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/electronic-circuits/matrix-keypad-scan-decode',423,414,'Keypad Scan Uses Few I/O Lines',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/electronic-circuits/open-collector-outputs',424,414,'Simulating Open Collector Outputs',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/raspberry-pi',425,372,'Raspberry Pi','microcontroller-projects/raspberry-pi/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/raspberry-pi/on-off-power-controller',426,425,'Raspberry Pi ON/OFF Power Controller',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications',427,425,'GPIO Electrical Specifications',0,0,0);
+indexmenu_10129169765577566196ca0.add('microcontroller-projects/microcontroller-videos-youtube',428,372,'Microcontroller Projects',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products',429,0,'Legacy Products','legacy-products/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller',430,429,'QED Board V2','legacy-products/qed2-68hc11-microcontroller/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware',431,430,'QED V2 Hardware Manual','legacy-products/qed2-68hc11-microcontroller/hardware/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/chapter_01_qed_hardward_overview',432,431,'Chapter 1 - Overview of QED Hardware',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/chapter_02_general_purpose_digital_io',433,431,'Chapter 2 - General Purpose Digital Input/Output',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/chapter_03_harware_68hc11_interrupts',434,431,'Chapter 3 - Hardware Perspective on 68HC11 Interrupts',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/chapter_04_programmable_timer_and_pulse_accumulator_subsystem',435,431,'Chapter 4 - Programmable Timer and Pulse Accumulator Subsystem',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/chapter_05_serial_peripheral_interface',436,431,'Chapter 5 - Serial Peripheral Interface (SPI)',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/chapter_06_analog_digital_conversion',437,431,'Chapter 6 - Analog to Digital and Digital to Analog Conversion',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/chapter_07_eeprom',438,431,'Chapter 7 - EEPROM',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/chapter_08_external_interrupts_cop_modes',439,431,'Chapter 8 - External Interrupts, Resets, Operating Modes, and COP',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/chapter_09_memory_mapped_io_and_prototyping_board',440,431,'Chapter 9 - Memory Mapped I/O and Prototyping Board',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/chapter_10_keypad_display',441,431,'Chapter 10 - Keypad and LCD Display Interfaces',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/chapter_11_serial_communications',442,431,'Chapter 11 - Serial Communications',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/chapter_12_real_time_clock',443,431,'Chapter 12 - Battery-Backed Real-Time Clock',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/chapter_13_powering_qed_board',444,431,'Chapter 13 - Powering QED Board',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/chapter_14_troubleshooting_and_caring_for_qed_board',445,431,'Chapter 14 - Trouble Shooting and Caring for QED Board',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/qed_hardware_appendix_a_qed3_connector_pinouts',446,431,'Appendix A  - QED Connector Pinouts',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/qed_hardware_appendix_b_board_schematics',447,431,'Appendix B - QED-3 Board Schematics',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/qed_hardware_appendix_c_68hc11f1_hardware_registers',448,431,'Appendix C - 68HC11F1 Hardware Registers',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/qed_hardware_appendix_d_specifications_of_qed_and_product_design_kit',449,431,'Appendix D - Specifications of QED Board and Product Design Kit',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/qed_hardware_appendix_e_82c55a_pia_data_sheet_and_pia_control_code_for_experts',450,431,'Appendix E - 82C55A PIA Data Sheet and PIA Control Code for Experts',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/qed_hardware_appendix_f',451,431,'Appendix F - Onboard Octal 12 Bit A/D Data Sheet',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/qed_hardware_appendix_g_onboard_octal_8_bit_dac_data_sheet',452,431,'Appendix G - Onboard Octal 8 Bit DAC Data Sheet',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/qed_hardware_appendix_h_addition_features_8_bit_bit_ad',453,431,'Appendix H - how to Use Additional Features of 8 Bit A/D',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/qed_hardware_appendix_i_keypad_data_sheet',454,431,'Appendix I - Keypad Data Sheet',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/hardware/qed_hardware_appendix_j_display_data_sheet',455,431,'Appendix J - Display Data Sheet',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software',456,430,'QED V2 Software Manual','legacy-products/qed2-68hc11-microcontroller/software/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_01_introduction',457,456,'Chapter 1 - Introduction',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_02_qed_forth_basics',458,456,'Chapter 2 - QED-Forth Basics',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_03_program_development_techniques',459,456,'Chapter 3 - Program Development Techniques',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_04_floating_point_math',460,456,'Chapter 4 - Floating Point Mathematics',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_05_heap_memory_manager',461,456,'Chapter 5 - Using Heap Memory',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_06_arrays_martrices_fast_vector_operations',462,456,'Chapter 6 - Arrays, Matrices, and Fast Vector Operations',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_07_simultaneous_equations_curve_fitting_preforming_ffts',463,456,'Chapter 7 - Solving Simultaneous Equations, Curve Fitting, and FFTs',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_08_structures',464,456,'Chapter 8 - Structures',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_09_designing_reentrant_code',465,456,'Chapter 9 - Designing Re-Entrant Code',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_10_mulitasking',466,456,'Chapter 10 - Multitasking',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_11_interrupts_and_register_initializations',467,456,'Chapter 11 - Interrupts and Register Initializations',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_12_display_keypad_serial',468,456,'Chapter 12 - User Interface: LCD Display, Keypad, and Serial Ports',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_13_the_assembler',469,456,'Chapter 13 - Assembler',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_14_mass_memory_interface',470,456,'Chapter 14 - Mass Memory Interface',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_15_user_area_tour',471,456,'Chapter 15 - Tour of User Area',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_16_advanced_topics',472,456,'Chapter 16 - Advanced Topics',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/chapter_17_turnkey_example',473,456,'Chapter 17 - Putting It All Together: Turnkeyed Application Program',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/qed_software_appendix_a_qed_board_memory_map',474,456,'Appendix - QED Board Memory Map',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/qed_software_appendix_b_error_handling',475,456,'Appendix B - Error Handling',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed2-68hc11-microcontroller/software/qed_software_appendix_c_header_format_for_dictionary_names',476,456,'Appendix C - Header Format for Dictionary Names',0,0,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed4-68hc11-microcontroller',477,429,'QED Board V4','legacy-products/qed4-68hc11-microcontroller/microcontroller',1,0);
+indexmenu_10129169765577566196ca0.add('legacy-products/qed4-68hc11-microcontroller/rtc',478,477,'QED Battery-backup',0,0,0);
+document.write(indexmenu_10129169765577566196ca0);
+addInitEvent(function(){indexmenu_10129169765577566196ca0.init(0,1,"",1,0);});
+//--><!]]>
+</script><div id="cdtree_indexmenu_10129169765577566196ca0" class="dtree" style="position:relative;overflow:hidden;width:100%;"><div id="dtree_indexmenu_10129169765577566196ca0" class="dtree default" style="overflow:visible;position:relative;width:100%"><div id="toc_indexmenu_10129169765577566196ca0" style="display:none;"></div><div class="dTreeNode"><img id="iindexmenu_10129169765577566196ca00" src="GPIO%20Electrical%20Specifications_files/base.gif" alt=""><a id="sindexmenu_10129169765577566196ca00" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/microcontroller" title="Welcome to Mosaic Documentation Web" onmouseover="indexmenu_10129169765577566196ca0.show_feat('0');" onmousedown="return indexmenu_checkcontextm('0',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(0);">Welcome to Mosaic Documentation Web</a></div><div id="dindexmenu_10129169765577566196ca00" class="clip" style="display:block;"><div class="dTreeNode"><a href="javascript:%20indexmenu_10129169765577566196ca0.o(1);"><img id="jindexmenu_10129169765577566196ca01" src="GPIO%20Electrical%20Specifications_files/plus.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca01" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca01" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/sbc-single-board-computers/microcontroller" title="Single Board Computers" onmouseover="indexmenu_10129169765577566196ca0.show_feat('1');" onmousedown="return indexmenu_checkcontextm('1',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(1);">Single Board Computers</a><div id="tindexmenu_10129169765577566196ca0" class="indexmenu_tocbullet default" style="display: inline;" title="Page contents"></div></div><div id="dindexmenu_10129169765577566196ca01" class="clip" style="display:none;"></div><div class="dTreeNode"><a href="javascript:%20indexmenu_10129169765577566196ca0.o(78);"><img id="jindexmenu_10129169765577566196ca078" src="GPIO%20Electrical%20Specifications_files/plus.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca078" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca078" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/gui-user-interface/microcontroller" title="GUI/Touchscreen Controllers" onmouseover="indexmenu_10129169765577566196ca0.show_feat('78');" onmousedown="return indexmenu_checkcontextm('78',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(78);">GUI/Touchscreen Controllers</a></div><div id="dindexmenu_10129169765577566196ca078" class="clip" style="display:none;"></div><div class="dTreeNode"><img src="GPIO%20Electrical%20Specifications_files/join.gif" alt=""><img id="iindexmenu_10129169765577566196ca0138" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0138" class="nodeUrl" href="http://www.mosaic-industries.com/embedded-systems/sbc-single-board-computers-instrument-development-kits-new-product-design/microcontroller" title="Starter Kits" onmouseover="indexmenu_10129169765577566196ca0.show_feat('138');" onmousedown="return indexmenu_checkcontextm('138',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(138);">Starter Kits</a></div><div class="dTreeNode"><img src="GPIO%20Electrical%20Specifications_files/join.gif" alt=""><img id="iindexmenu_10129169765577566196ca0139" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0139" class="nodeUrl" href="http://www.mosaic-industries.com/embedded-systems/modular-power-io-panels/microcontroller" title="Docking Panels" onmouseover="indexmenu_10129169765577566196ca0.show_feat('139');" onmousedown="return indexmenu_checkcontextm('139',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(139);">Docking Panels</a></div><div class="dTreeNode"><a href="javascript:%20indexmenu_10129169765577566196ca0.o(140);"><img id="jindexmenu_10129169765577566196ca0140" src="GPIO%20Electrical%20Specifications_files/plus.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0140" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0140" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/instrumentation/microcontroller" title="Modular I/O Boards" onmouseover="indexmenu_10129169765577566196ca0.show_feat('140');" onmousedown="return indexmenu_checkcontextm('140',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(140);">Modular I/O Boards</a></div><div id="dindexmenu_10129169765577566196ca0140" class="clip" style="display:none;"></div><div class="dTreeNode"><a href="javascript:%20indexmenu_10129169765577566196ca0.o(288);"><img id="jindexmenu_10129169765577566196ca0288" src="GPIO%20Electrical%20Specifications_files/plus.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0288" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0288" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/electronic-instrument-design-new-product-development/microcontroller" title="Accessories" onmouseover="indexmenu_10129169765577566196ca0.show_feat('288');" onmousedown="return indexmenu_checkcontextm('288',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(288);">Accessories</a></div><div id="dindexmenu_10129169765577566196ca0288" class="clip" style="display:none;"></div><div class="dTreeNode"><a href="javascript:%20indexmenu_10129169765577566196ca0.o(301);"><img id="jindexmenu_10129169765577566196ca0301" src="GPIO%20Electrical%20Specifications_files/plus.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0301" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0301" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/c-ide-software-development/microcontroller" title="Development Software" onmouseover="indexmenu_10129169765577566196ca0.show_feat('301');" onmousedown="return indexmenu_checkcontextm('301',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(301);">Development Software</a></div><div id="dindexmenu_10129169765577566196ca0301" class="clip" style="display:none;"></div><div class="dTreeNode"><a href="javascript:%20indexmenu_10129169765577566196ca0.o(369);"><img id="jindexmenu_10129169765577566196ca0369" src="GPIO%20Electrical%20Specifications_files/plus.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0369" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0369" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/c-tutorial/microcontroller" title="Software Examples" onmouseover="indexmenu_10129169765577566196ca0.show_feat('369');" onmousedown="return indexmenu_checkcontextm('369',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(369);">Software Examples</a></div><div id="dindexmenu_10129169765577566196ca0369" class="clip" style="display:none;"></div><div class="dTreeNode"><a href="javascript:%20indexmenu_10129169765577566196ca0.o(372);"><img id="jindexmenu_10129169765577566196ca0372" src="GPIO%20Electrical%20Specifications_files/minus.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0372" src="GPIO%20Electrical%20Specifications_files/folderhopen.gif" alt=""><a id="sindexmenu_10129169765577566196ca0372" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/microcontroller" title="App Notes &amp; Toolkits" onmouseover="indexmenu_10129169765577566196ca0.show_feat('372');" onmousedown="return indexmenu_checkcontextm('372',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(372);">App Notes &amp; Toolkits</a></div><div id="dindexmenu_10129169765577566196ca0372" class="clip" style="display: block;"><div class="dTreeNode"><img src="GPIO%20Electrical%20Specifications_files/line.gif" alt=""><a href="javascript:%20indexmenu_10129169765577566196ca0.o(373);"><img id="jindexmenu_10129169765577566196ca0373" src="GPIO%20Electrical%20Specifications_files/plus_.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0373" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0373" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/measurement-techniques/microcontroller" title="Measurement Techniques" onmouseover="indexmenu_10129169765577566196ca0.show_feat('373');" onmousedown="return indexmenu_checkcontextm('373',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(373);">Measurement Techniques</a></div><div id="dindexmenu_10129169765577566196ca0373" class="clip" style="display:none;"></div><div class="dTreeNode"><img src="GPIO%20Electrical%20Specifications_files/line.gif" alt=""><a href="javascript:%20indexmenu_10129169765577566196ca0.o(375);"><img id="jindexmenu_10129169765577566196ca0375" src="GPIO%20Electrical%20Specifications_files/plus_.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0375" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0375" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/stepper-motors/microcontroller" title="Stepper Motor Control" onmouseover="indexmenu_10129169765577566196ca0.show_feat('375');" onmousedown="return indexmenu_checkcontextm('375',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(375);">Stepper Motor Control</a></div><div id="dindexmenu_10129169765577566196ca0375" class="clip" style="display:none;"></div><div class="dTreeNode"><img src="GPIO%20Electrical%20Specifications_files/line.gif" alt=""><a href="javascript:%20indexmenu_10129169765577566196ca0.o(380);"><img id="jindexmenu_10129169765577566196ca0380" src="GPIO%20Electrical%20Specifications_files/plus_.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0380" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0380" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/temperature-measurement/microcontroller" title="Measuring Temperature" onmouseover="indexmenu_10129169765577566196ca0.show_feat('380');" onmousedown="return indexmenu_checkcontextm('380',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(380);">Measuring Temperature</a></div><div id="dindexmenu_10129169765577566196ca0380" class="clip" style="display:none;"></div><div class="dTreeNode"><img src="GPIO%20Electrical%20Specifications_files/line.gif" alt=""><a href="javascript:%20indexmenu_10129169765577566196ca0.o(406);"><img id="jindexmenu_10129169765577566196ca0406" src="GPIO%20Electrical%20Specifications_files/plus_.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0406" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0406" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/measure-distance/microcontroller" title="Measuring Distance" onmouseover="indexmenu_10129169765577566196ca0.show_feat('406');" onmousedown="return indexmenu_checkcontextm('406',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(406);">Measuring Distance</a></div><div id="dindexmenu_10129169765577566196ca0406" class="clip" style="display:none;"></div><div class="dTreeNode"><img src="GPIO%20Electrical%20Specifications_files/line.gif" alt=""><a href="javascript:%20indexmenu_10129169765577566196ca0.o(408);"><img id="jindexmenu_10129169765577566196ca0408" src="GPIO%20Electrical%20Specifications_files/plus_.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0408" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0408" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/frequency-measurement/microcontroller" title="Measuring Frequency" onmouseover="indexmenu_10129169765577566196ca0.show_feat('408');" onmousedown="return indexmenu_checkcontextm('408',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(408);">Measuring Frequency</a></div><div id="dindexmenu_10129169765577566196ca0408" class="clip" style="display:none;"></div><div class="dTreeNode"><img src="GPIO%20Electrical%20Specifications_files/line.gif" alt=""><a href="javascript:%20indexmenu_10129169765577566196ca0.o(410);"><img id="jindexmenu_10129169765577566196ca0410" src="GPIO%20Electrical%20Specifications_files/plus_.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0410" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0410" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/reducing-emi/microcontroller" title="Reducing EMI" onmouseover="indexmenu_10129169765577566196ca0.show_feat('410');" onmousedown="return indexmenu_checkcontextm('410',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(410);">Reducing EMI</a></div><div id="dindexmenu_10129169765577566196ca0410" class="clip" style="display:none;"></div><div class="dTreeNode"><img src="GPIO%20Electrical%20Specifications_files/line.gif" alt=""><a href="javascript:%20indexmenu_10129169765577566196ca0.o(412);"><img id="jindexmenu_10129169765577566196ca0412" src="GPIO%20Electrical%20Specifications_files/plus_.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0412" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0412" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/circuit-protection/microcontroller" title="Circuit Protection" onmouseover="indexmenu_10129169765577566196ca0.show_feat('412');" onmousedown="return indexmenu_checkcontextm('412',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(412);">Circuit Protection</a></div><div id="dindexmenu_10129169765577566196ca0412" class="clip" style="display:none;"></div><div class="dTreeNode"><img src="GPIO%20Electrical%20Specifications_files/line.gif" alt=""><a href="javascript:%20indexmenu_10129169765577566196ca0.o(414);"><img id="jindexmenu_10129169765577566196ca0414" src="GPIO%20Electrical%20Specifications_files/plus_.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0414" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0414" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/electronic-circuits/microcontroller" title="Electronic Circuits for Instruments" onmouseover="indexmenu_10129169765577566196ca0.show_feat('414');" onmousedown="return indexmenu_checkcontextm('414',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(414);">Electronic Circuits for Instruments</a></div><div id="dindexmenu_10129169765577566196ca0414" class="clip" style="display:none;"></div><div class="dTreeNode"><img src="GPIO%20Electrical%20Specifications_files/line.gif" alt=""><a href="javascript:%20indexmenu_10129169765577566196ca0.o(425);"><img id="jindexmenu_10129169765577566196ca0425" src="GPIO%20Electrical%20Specifications_files/minus_.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0425" src="GPIO%20Electrical%20Specifications_files/folderhopen.gif" alt=""><a id="sindexmenu_10129169765577566196ca0425" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/microcontroller" title="Raspberry Pi" onmouseover="indexmenu_10129169765577566196ca0.show_feat('425');" onmousedown="return indexmenu_checkcontextm('425',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(425);">Raspberry Pi</a></div><div id="dindexmenu_10129169765577566196ca0425" class="clip" style="display: block;"><div class="dTreeNode"><img src="GPIO%20Electrical%20Specifications_files/line.gif" alt=""><img src="GPIO%20Electrical%20Specifications_files/line.gif" alt=""><img src="GPIO%20Electrical%20Specifications_files/join.gif" alt=""><img id="iindexmenu_10129169765577566196ca0426" src="GPIO%20Electrical%20Specifications_files/page.gif" alt=""><a id="sindexmenu_10129169765577566196ca0426" class="nodeUrl" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/on-off-power-controller" title="Raspberry Pi ON/OFF Power Controller" onmouseover="indexmenu_10129169765577566196ca0.show_feat('426');" onmousedown="return indexmenu_checkcontextm('426',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(426);">Raspberry Pi ON/OFF Power Controller</a></div><div class="dTreeNode"><img src="GPIO%20Electrical%20Specifications_files/line.gif" alt=""><img src="GPIO%20Electrical%20Specifications_files/line.gif" alt=""><img src="GPIO%20Electrical%20Specifications_files/joinbottom.gif" alt=""><img id="iindexmenu_10129169765577566196ca0427" src="GPIO%20Electrical%20Specifications_files/page.gif" alt=""><a id="sindexmenu_10129169765577566196ca0427" class="navSel" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/raspberry-pi/gpio-pin-electrical-specifications" title="GPIO Electrical Specifications" onmouseover="indexmenu_10129169765577566196ca0.show_feat('427');" onmousedown="return indexmenu_checkcontextm('427',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(427);">GPIO Electrical Specifications</a></div></div><div class="dTreeNode"><img src="GPIO%20Electrical%20Specifications_files/line.gif" alt=""><img src="GPIO%20Electrical%20Specifications_files/joinbottom.gif" alt=""><img id="iindexmenu_10129169765577566196ca0428" src="GPIO%20Electrical%20Specifications_files/page.gif" alt=""><a id="sindexmenu_10129169765577566196ca0428" class="nodeUrl" href="http://www.mosaic-industries.com/embedded-systems/microcontroller-projects/microcontroller-videos-youtube" title="Microcontroller Projects" onmouseover="indexmenu_10129169765577566196ca0.show_feat('428');" onmousedown="return indexmenu_checkcontextm('428',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(428);">Microcontroller Projects</a></div></div><div class="dTreeNode"><a href="javascript:%20indexmenu_10129169765577566196ca0.o(429);"><img id="jindexmenu_10129169765577566196ca0429" src="GPIO%20Electrical%20Specifications_files/plusbottom.gif" alt=""></a><img id="iindexmenu_10129169765577566196ca0429" src="GPIO%20Electrical%20Specifications_files/folderh.gif" alt=""><a id="sindexmenu_10129169765577566196ca0429" class="nodeFdUrl" href="http://www.mosaic-industries.com/embedded-systems/legacy-products/microcontroller" title="Legacy Products" onmouseover="indexmenu_10129169765577566196ca0.show_feat('429');" onmousedown="return indexmenu_checkcontextm('429',indexmenu_10129169765577566196ca0,event);" oncontextmenu="return indexmenu_stopevt(event)" onclick="javascript: indexmenu_10129169765577566196ca0.s(429);">Legacy Products</a></div><div id="dindexmenu_10129169765577566196ca0429" class="clip" style="display:none;"></div></div></div><div id="zindexmenu_10129169765577566196ca0" class="indexmenu_rarrow"></div><div id="left_indexmenu_10129169765577566196ca0" class="indexmenu_larrow" style="display:none;" title="Click to scroll back" onmousedown="javascript:indexmenu_10129169765577566196ca0.scroll('r',1);" onmouseup="javascript:indexmenu_10129169765577566196ca0.stopscroll();"></div></div></td></tr></tbody></table>
+<div class="block" style="margin-bottom:0;position:relative;top:-.4em;padding-left:20px;width:100%;padding-top:5px;padding-bottom:0"><span class="inline action16 imglink help"><strong><a href="http://www.mosaic-industries.com/embedded-systems/dokuwiki/help-for-readers/microcontroller" class="wikilink1" title="dokuwiki:help-for-readers:microcontroller" rel="nofollow">Help</a></strong></span>
+</div>
+<a class="backtotop" href="#dokuwiki__top" rel="nofollow" onclick="window.scrollTo(0, 0)" title="Back to top">&nbsp;</a></div>
+<!-- EDIT1 SECTION "Navigation" [285-] --></nav></div></div><div class="sbar rounded tinted __tpl_quicklinks" style="margin-top:.35em;"><div class="tglclose" title="Hide" onclick="toggleVisibility(this)"><div>&nbsp;</div>Quick Links</div><div style="display:block"><nav class="sb">
+
+<div class="level1">
+<div class="block local"><a href="http://www.mosaic-industries.com/embedded-systems/microcontroller" class="action16 book" title="Your local Documentation Web home page" rel="nofollow">Documentation home page</a>
+<p><a href="http://www.mosaic-industries.com/embedded-systems/tpl_discussion" class="action16 comments" target="_blank" title="We'll respond ASAP to your questions about programming our embedded controllers" rel="nofollow">Ask questions/comment</a>
+</p>
+<p><a href="http://www.mosaic-industries.com/embedded-systems/tpl_faqs" class="action16 question" title="Learn the answers to frequently asked questions" rel="nofollow">Frequently asked questions</a>
+</p>
+<p><a href="http://www.mosaic-industries.com/embedded-systems/tpl_discussion" class="action16 bug" target="_blank" title="Please report any bugs you find" rel="nofollow">Report bugs </a>
+</p>
+<p><a href="http://www.mosaic-industries.com/embedded-systems/dokuwiki/help-for-readers/microcontroller" class="action16 inform" title="How to navigate and find things" rel="nofollow">Using this Doc Web</a>
+</p>
+<p><a href="http://www.mosaic-industries.com/" class="action16 mosaic" target="_blank" title="Find controllers for instrumentation and automation at the Mosaic Industries site" rel="nofollow">Mosaic Industries web site</a>
+</p>
+<p><a href="http://www.mosaic-industries.com/About" class="action16 users" target="_blank" title="About Mosaic Industries, manufacturers of embedded computers and I/O devices" rel="nofollow">About Mosaic Industries</a>
+</p>
+<p><span class="curid"><a href="http://www.mosaic-industries.com/embedded-systems/dokuwiki/help-for-readers/contact-us" class="action16 phone" title="Help is just a phone call away" rel="nofollow">Contact us</a></span>
+</p>
+<p><a href="http://www.mosaic-industries.com/embedded-systems/dokuwiki/help-for-readers/microcontroller" class="action16 help" title="Search the help pages" rel="nofollow">Help!</a>
+</p></div>
+<div class="block public"><a href="http://www.mosaic-industries.com/embedded-systems/microcontroller" class="action16 book" title="Documentation Web home page" rel="nofollow">Documentation home page</a>
+<p><a href="http://www.mosaic-industries.com/embedded-systems/tpl_discussion" class="action16 comments" title="We'll respond ASAP to your questions about programming our embedded controllers" rel="nofollow">Ask questions/comment</a>
+</p>
+<p><a href="http://www.mosaic-industries.com/embedded-systems/tpl_faqs" class="action16 question" title="Learn the answers to frequently asked questions" rel="nofollow">Frequently asked questions</a>
+</p>
+<p><a href="http://www.mosaic-industries.com/embedded-systems/tpl_discussion" class="action16 bug" title="Please report any bugs you find" rel="nofollow">Report bugs</a>
+</p>
+<p><a href="http://www.mosaic-industries.com/embedded-systems/dokuwiki/help-for-readers/microcontroller" class="action16 inform" title="How to navigate and find things" rel="nofollow">Using this Doc Web</a>
+</p>
+<p><a href="http://www.mosaic-industries.com/" class="action16 mosaic" target="_blank" title="Find controllers for instrumentation and automation at the Mosaic Industries site" rel="nofollow">Mosaic Industries web site</a>
+</p>
+<p><a href="http://www.mosaic-industries.com/About" class="action16 users" target="_blank" title="About Mosaic Industries, manufacturers of embedded computers and I/O devices" rel="nofollow">About Mosaic Industries</a>
+</p>
+<p><span class="curid"><a href="http://www.mosaic-industries.com/embedded-systems/dokuwiki/help-for-readers/contact-us" class="action16 phone" title="Help is just a phone call away" rel="nofollow">Contact us</a></span>
+</p>
+<p><a href="http://www.mosaic-industries.com/embedded-systems/dokuwiki/help-for-readers/microcontroller" class="action16 help" title="Search the help pages" rel="nofollow">Help!</a>
+</p></div>
+<a class="backtotop" href="#dokuwiki__top" rel="nofollow" onclick="window.scrollTo(0, 0)" title="Back to top">&nbsp;</a></div>
+<!-- EDIT1 SECTION "Quick Links" [468-] --></nav></div></div><div class="sbar rounded tinted __tpl_tagcloud" style="margin-top:.35em;"><div class="tglclose" title="Hide" onclick="toggleVisibility(this)"><div>&nbsp;</div>Tags</div><div style="display:block"><nav class="sb">
+
+<div class="level1"><div class="cloud">
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/analog?do=showtag&amp;tag=analog" class="cloud5_tag2" title="analog" rel="nofollow">analog</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/automation?do=showtag&amp;tag=automation" class="cloud3_tag2" title="automation" rel="nofollow">automation</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/c-examples?do=showtag&amp;tag=c-examples" class="cloud5_tag2" title="c-examples" rel="nofollow">c-examples</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/data-acquisition?do=showtag&amp;tag=data-acquisition" class="cloud5_tag2" title="data-acquisition" rel="nofollow">data-acquisition</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/data-display?do=showtag&amp;tag=data-display" class="cloud3_tag2" title="data-display" rel="nofollow">data-display</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/data-entry?do=showtag&amp;tag=data-entry" class="cloud3_tag2" title="data-entry" rel="nofollow">data-entry</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/data-storage?do=showtag&amp;tag=data-storage" class="cloud1_tag2" title="data-storage" rel="nofollow">data-storage</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/digital?do=showtag&amp;tag=digital" class="cloud5_tag2" title="digital" rel="nofollow">digital</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/forth-examples?do=showtag&amp;tag=forth-examples" class="cloud5_tag2" title="forth-examples" rel="nofollow">forth-examples</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/hmi?do=showtag&amp;tag=hmi" class="cloud1_tag2" title="hmi" rel="nofollow">hmi</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/industrial-communications?do=showtag&amp;tag=industrial-communications" class="cloud3_tag2" title="industrial-communications" rel="nofollow">industrial-communications</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/internet-cloud?do=showtag&amp;tag=internet-cloud" class="cloud2_tag2" title="internet-cloud" rel="nofollow">internet-cloud</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/motor-control?do=showtag&amp;tag=motor-control" class="cloud5_tag2" title="motor-control" rel="nofollow">motor-control</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/panel-display?do=showtag&amp;tag=panel-display" class="cloud1_tag2" title="panel-display" rel="nofollow">panel-display</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/pc-interface?do=showtag&amp;tag=pc-interface" class="cloud5_tag2" title="pc-interface" rel="nofollow">pc-interface</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/pid-control?do=showtag&amp;tag=pid-control" class="cloud4_tag2" title="pid-control" rel="nofollow">pid-control</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/prototyping?do=showtag&amp;tag=prototyping" class="cloud3_tag2" title="prototyping" rel="nofollow">prototyping</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/pwm?do=showtag&amp;tag=pwm" class="cloud3_tag2" title="pwm" rel="nofollow">pwm</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/remote-device?do=showtag&amp;tag=remote-device" class="cloud4_tag2" title="remote-device" rel="nofollow">remote-device</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/remote-email?do=showtag&amp;tag=remote-email" class="cloud1_tag2" title="remote-email" rel="nofollow">remote-email</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/robotics?do=showtag&amp;tag=robotics" class="cloud3_tag2" title="robotics" rel="nofollow">robotics</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/scientific-measurement?do=showtag&amp;tag=scientific-measurement" class="cloud5_tag2" title="scientific-measurement" rel="nofollow">scientific-measurement</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/solenoid-control?do=showtag&amp;tag=solenoid-control" class="cloud5_tag2" title="solenoid-control" rel="nofollow">solenoid-control</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/temperature?do=showtag&amp;tag=temperature" class="cloud5_tag2" title="temperature" rel="nofollow">temperature</a>
+<a href="http://www.mosaic-industries.com/embedded-systems/tag/web-remote-control?do=showtag&amp;tag=web-remote-control" class="cloud2_tag2" title="web-remote-control" rel="nofollow">web-remote-control</a>
+</div>
+<a class="backtotop" href="#dokuwiki__top" rel="nofollow" onclick="window.scrollTo(0, 0)" title="Back to top">&nbsp;</a></div>
+<!-- EDIT1 SECTION "Tags" [283-] --></nav></div></div></div>
+</div>
+<script type="text/javascript">xGetElementById('left__col').style['width']='224px';xGetElementById('center__content').style['marginLeft']='224px';xGetElementById('left__col').style.display='block';xGetElementById('body__width').className='wleft';</script>
+<div class="clearer">&nbsp;</div>
+<footer>
+<div class="__tpl_bottom">
+<div class="box center" style="width:auto; background-color: rgb(248,248,248); border-color: rgb(207,207,239);">
+  <b class="xtop"><b class="xb1" style="background-color: rgb(248,248,248); border-color: rgb(207,207,239);"></b><b class="xb2" style="background-color: rgb(248,248,248); border-color: rgb(207,207,239);"></b><b class="xb3" style="background-color: rgb(248,248,248); border-color: rgb(207,207,239);"></b><b class="xb4" style="background-color: rgb(248,248,248); border-color: rgb(207,207,239);"></b></b>
+  <div class="xbox" style="background-color: rgb(248,248,248); border-color: rgb(207,207,239);">
+<div class="box_content" style="background-color: rgb(248,248,248); border-color: rgb(207,207,239)">
+<div class="block centeralign">
+<a href="http://www.mosaic-industries.com/embedded-systems/hidden_legal/user-agreement" class="wikilink1" title="User Agreement" rel="nofollow">User Agreement</a> | <a href="http://www.mosaic-industries.com/embedded-systems/hidden_legal/privacy" class="wikilink1" title="Privacy Policy" rel="nofollow">Privacy Policy</a> | <a href="http://www.mosaic-industries.com/embedded-systems/hidden_legal/eula" class="wikilink1" title="End User License Agreement" rel="nofollow">End User License Agreement</a> | <a href="http://www.mosaic-industries.com/embedded-systems/hidden_legal/salesterms" class="wikilink1" title="Sales Terms and Conditions" rel="nofollow">Sales Terms and Conditions</a> | <a href="http://www.mosaic-industries.com/embedded-systems/hidden_legal/lifesupport" class="wikilink1" title="Life Support" rel="nofollow">Life Support Policy</a> | <a href="http://www.mosaic-industries.com/embedded-systems/hidden_legal/trademarks" class="wikilink1" title="Trademarks" rel="nofollow">Trademarks</a> | <a href="http://www.mosaic-industries.com/embedded-systems/policies/microcontroller" class="wikilink1" title="All Policies" rel="nofollow">All Policies</a>
+</div></div>
+  </div>
+  <b class="xbottom"><b class="xb4" style="background-color: rgb(248,248,248); border-color: rgb(207,207,239);"></b><b class="xb3" style="background-color: rgb(248,248,248); border-color: rgb(207,207,239);"></b><b class="xb2" style="background-color: rgb(248,248,248); border-color: rgb(207,207,239);"></b><b class="xb1" style="background-color: rgb(248,248,248); border-color: rgb(207,207,239);"></b></b>
+</div>
+
+</div><div class="bar">
+<div class="bar-left">
+<a target="_blank" class="btnmosaic" href="http://www.mosaic-industries.com/embedded-systems/wiki/mosaic-template" title="Dokuwiki Mosaic Template, by Mosaic Industries, manufacturer of single board computers and embedded device servers for instruments and automation"></a></div>
+<div class="bar-right">
+<a target="_blank" class="btndw" href="http://wiki.splitbrain.org/wiki:dokuwiki" title="Animated by Doku_Wiki" rel="nofollow"></a></div>
+<div class="bar-center"><br>© Mosaic Industries, Inc. All rights reserved.
+</div><div class="clearer"></div>
+</div>
+</footer>
+<div id="login__btn"><div id="login__pos"><div id="m__clk">Wed, Jun 10, 11:47 am</div></div></div>
+<div id="search__pos"><form action="/embedded-systems/" accept-charset="utf-8" class="search" id="dw__search" method="get"><div class="no"><input name="do" value="search" type="hidden"><input id="qsearch__in" accesskey="f" name="id" class="edit" title="[F]" type="text"><input value="Search" class="button" title="Search" type="submit"><div style="display: none;" id="qsearch__out" class="ajax_qsearch JSpopup"></div></div></form></div>
+</div>
+<div class="no"><img src="GPIO%20Electrical%20Specifications_files/indexer.gif" alt="" height="1" width="2"></div>
+</div><div style="position: absolute; left: 786px; top: 2061px; display: none;" class="insitu-footnote JSpopup dokuwiki" id="insitu__fn"><div class="fnindex"><a href="#fnt__25" id="insitu__fn__25 rel=" nofollow"="" class="fn_bot">25)</a></div><div class="fntext">actually parasitic FETs, shown as diodes in <a href="#fig1" class="wikilink1" title="microcontroller-projects:raspberry-pi:gpio-pin-electrical-specifications ↵">Figure 1</a></div></div></div>
+<script type="text/javascript">initMosaic();</script><script type="text/javascript">(function(){var po=document.createElement('script');po.type='text/javascript'; po.async = true;po.src='https://apis.google.com/js/plusone.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(po, s);})();</script>
+
+
+<div style="position: absolute; display: none;" id="rindexmenu_10129169765577566196ca0" class="indexmenu_rmenu default"></div><iframe tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;" src="GPIO%20Electrical%20Specifications_files/postmessageRelay.html" id="oauth2relay1121435210" name="oauth2relay1121435210"></iframe></body></html>

@@ -1,0 +1,43 @@
+
+            Linux for Embedded and Real-time Applications
+                          Sample Software
+
+
+  This folder contains the software you will need to carry out the exercises
+  in the book.
+
+  /
+    mkimage - utility to add a 64-byte u-boot header to a file. Install in
+              /usr/local/arm/4.3.2/bin
+    yaffs.patch - patch file to be applied to the linux-3.1.5 from kernel.org.
+              This includes the yaffs file system, device drivers for the adc,
+              buttons, and leds, plus a change to the lcd selection code.
+
+  factory_images/
+    See the README file for descriptions of the files in this folder
+
+  home/
+    Sample code and header files for application development on the target
+    board.  Copy this to the home folder in your target file system, root_qtopia/.
+
+  record_sort/
+    Sample code for the exercise in Chapter 6, Eclipse.
+
+  NOTES
+    1.  The numbers that desribe the Mini2440 lcd type have changed.  The default is
+        now 3.
+            0 - All 3.5 inch portrait oriented panels; N35, T35, and X35.
+            1 - 7 inch panels, A70.
+            2 - VGA
+            3 - 3.5 inch landscape panel, W35.
+
+    2.  The backlight boots up off so you won't see the screen.  To turn it on
+        execute this command:
+            echo 1 > /sys/class/leds/backlight/brightness
+
+    3.  LED1 blinks, apparently driven by some sort of watchdog that I haven't
+        been able to identify.
+
+    4.  Chapter 9 mentions the device drivers for the Mini2440 peripherals and
+        says they are in linux/drivers/char.  That won't be true until Chapter
+        11.  Either skip ahead or wait until then to look at the drivers.

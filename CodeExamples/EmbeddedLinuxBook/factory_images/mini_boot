@@ -1,0 +1,18 @@
+setenv mini2440 mini2440=3b
+setenv root_nfs /home/<your_home_directory>/root_qtopia
+setenv bootargs_base console=ttySAC0,115200
+setenv root_nand root=/dev/mtdblock3 rootfstype=yaffs
+setenv set_bootargs_nand setenv bootargs \${bootargs_base} \${mini2440} \${root_nand} ip=\${ipaddr}
+setenv set_bootargs_nfs setenv bootargs \${bootargs_base} \${mini2440} root=/dev/nfs  nfsroot=\${serverip}:\${root_nfs} ip=\${ipaddr}
+setenv bootcmd nand read.e 32000000 kernel 267000\; bootm 32000000
+setenv hostname MINI2440
+setenv boot_tftp tftpboot 32000000 uImage\; bootm 32000000
+setenv set_root_nfs run set_bootargs_nfs
+dynenv set 40000
+saveenv
+tftp 32000000 u-boot.bin
+nand write.e 32000000 u-boot ${filesize}
+tftp 32000000 uImage
+nand write.e 32000000 kernel ${filesize}
+tftp 30008000 target_fs.yaffs
+nand write.yaffs 30008000 root ${filesize}

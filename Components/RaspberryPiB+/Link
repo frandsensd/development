@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Link to BCM2835 The Broadcom chip used in the Raspberry Pi Model A, B, B+ and Compute Module Please refer to: BCM2835 Peripheral specification GPU documentation and open source driver ARM1176 Processor ARM1176JZF-S BCM2836 - Raspberry Pi Documentation
+Type=Link
+URL=https://www.raspberrypi.org/documentation/hardware/raspberrypi/bcm2835/
+Icon=text-html
+Name[en_US]=Link to BCM2835 chip used in Raspberry Pi Model A, B, B+ and Compute Module Please refer to: BCM2835 Peripheral specification GPU documentation and open source driver ARM1176 Processor ARM1176JZF-S BCM2836 - Raspberry Pi Documentation

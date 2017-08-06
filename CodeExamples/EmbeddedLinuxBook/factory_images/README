@@ -1,0 +1,30 @@
+                                 Factory Images
+
+This folder contains a number of files that are loaded into NAND flash
+on the Mini2440 along with tools to reload these files if necessary.
+
+Scripts -- Read these files to understand how they work
+  mk_kernel.sh -- Convert a kernel executable image into a u-boot image
+                  by invoking mkimage
+  mk_uboot.sh  -- Convert a text file into a u-boot script by invoking
+                  mkimage.  (Note that the book erroneously refers to this
+                  as mk_uboot)
+  move_files.sh-- Move the kernel, uboot, and root file system images to
+                  the default TFTP directory
+  mini_boot    -- A u-boot script to initialize NAND flash and load u-boot,
+                  the kernel, and the root file system into NAND (plain
+                  text version)
+  set-mini_boot-- A minicom script for invoking mini_boot.scr
+
+Remember to preface the shell script name with ./ if you execute it from
+factory_images/.
+
+Image files
+  u-boot.bin   -- U-boot executable for loading to NAND
+  uImage-3.5.3 -- The Linux kernel image stored in NAND flash
+  target_fs.yaffs  -- YAFFS file system image for loading into NAND flash
+
+Tools
+  boot_usb     -- Supports loading files to the Mini2440 RAM over USB using
+                  the Supervivi NOR flash boot
+  s3c2410_boot_usb.tar.gz -- Source tree for boot_usb

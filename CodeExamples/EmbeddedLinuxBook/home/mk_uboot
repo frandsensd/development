@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Shell script for creating a U-boot script
+
+mkimage -T script -C none -n 'boot script' -d $1 $1.scr
+mv $1.scr /tftpboot
