@@ -1,0 +1,31 @@
+Typical LED's (5mm)
+===================
+Polarity:
++	long leg (anode)
+-	short leg (cathode)
+Voltage: 2.1V
+Max current: 20mA
+
+Serial resistor recommendation
+5V DC
+Brightest light:
+(5-2.1)/20m [V/A] = 145 Ohm. 
+Hence to avoid breaking the LED the serial resistor MUST be greater than 145 Ohm.
+Typical examples:
+220 Ohm => (5-2.1)/220 [V/Ohm] = 13.2 [mA] => Bright light
+1k Ohm  => (5-2.1)/1k  [V/Ohm] =  2.9 [mA] => Little dimmer light
+10k Ohm => (5-2.1)/10k [V/Ohm] = 0.29 [mA] => Weak light
+
+
+
+RGB LED's
+=========
+Polarity:
++	Shortest three, with 
+	RED at flat side,
+	GREEN after cathode,
+	BLUE after GREEN
+-	Cathode, second from flat side.
+Same configuration as LED's above, but contains three individually controlled LED's.
+Using PWM the intensity of the RGB can be controlled on the three inputs, allowing
+any color to be displayed.
