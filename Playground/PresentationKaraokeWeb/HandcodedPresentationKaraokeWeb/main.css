@@ -1,0 +1,90 @@
+body {
+	background : black;
+	border-style : solid;
+	border-width : 1px;
+	border-color : blue;
+	color : yellow;
+	font-family: Arial;
+	font-style: normal;
+	font-size : 1em;
+	font-weight: normal;
+	text-align : left;
+}
+
+h1 {
+	font-size : 4em;
+	font-weight: bold;
+}
+
+h2 {
+	font-size : 18;
+}
+
+h3 {
+	color : #666666;
+	font-size : 14;
+}
+
+form {
+	align: left;
+	margin: 1em;
+}
+
+front {
+	position:fixed;
+	left: 0px;
+	top: 10px;
+	z-index: 1;
+}
+
+slide {
+	position:fixed;
+	left: 0px;
+	top: 10px;
+	z-index: 1;
+}
+
+.mainPageTitle {
+	color: blue;
+	text-align: center;
+}
+
+.mainPageImage {
+	display: block;
+	margin: auto;
+}
+
+.inputSection {
+	border-style : solid;
+	border-width : 1px;
+	width: 10em;
+}
+
+.autoAdvanceTimingInput {
+	width: 1.5em;
+	text-align: right;
+}
+
+.slidesInput {
+	width: 1.5em;
+	text-align: right;
+	margin: 1em;
+}
+
+.startButton {
+	font-family: 'Comic Sans MS';
+	font-size: 2em;
+	margin: 1em;
+	background: blue;
+	color: gold;
+	border-radius: 1em;
+}
+
+.nextButton {
+	font-family: 'Comic Sans MS';
+	font-size: 2em;
+	margin: 1em;
+	background: blue;
+	color: gold;
+	border-radius: 1em;
+}

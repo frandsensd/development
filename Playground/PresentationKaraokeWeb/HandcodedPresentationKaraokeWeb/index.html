@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link rel='stylesheet' href='main.css'>
+	<link rel='shortcut icon' href='images/titleIcon64x64.bmp' />
+	<script type="text/javascript" src="scripts/karaoke.js"></script>
+	<title>Presentation Karaoke</title>
+	<!-- Meta data for HTML document about the data -->
+</head>
+
+<body>
+	<header><h1 class='mainPageTitle'>Presentation Karaoke</h1></header>
+	<section id='front' style='visibility:visible;'>
+		<img class='mainPageImage' src='images/titleIcon.jpg'/>
+		<h2>Slide advance options</h2>
+		<form action=''>
+			<div class='inputSection'>
+				<input id='advanceType' type='radio' name='advanceType' value='auto' checked>Auto
+				<input id='autoAdvanceSeconds' class='autoAdvanceTimingInput' name='autoAdvanceSeconds' type='text' value='2' min='2' max='60' maxlength='2'/> seconds<br>
+				<input id='advanceType' type='radio' name='advanceType' value='manual'>Manual<br>
+				Slides<input id='numberOfSlides' class='slidesInput' name='numberOfSlides' type='text' value='5' min='3' max='20'>
+			</div>
+			<button class='startButton' onclick='startKaraoke(event)' type='button'>Start</button>
+		</form>
+	</section>
+	<section id='slide' style='visibility:hidden;'>
+		<button class='nextButton' onclick='advanceSlideManually(event)' type='button'>Next</button>
+	</section>
+</body>
+
+</html>
