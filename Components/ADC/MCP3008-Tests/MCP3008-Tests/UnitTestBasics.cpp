@@ -37,14 +37,14 @@ namespace MCP3008Tests
 		TEST_METHOD(TestInitializeMCP3008DriverWithDefaults)
 		{
 			drv = new Mcp3008Driver();
-			Assert::AreEqual((int)AudioDriverConfig::ADCSingleEndedCh0, (int)drv->GetAudioDriverConfiguration(), L"Expected default configuration to be ADCSingleEndedCh0");
+			Assert::AreEqual((int)ADCConfig::ADCSingleEndedCh0, (int)drv->GetADCConfiguration(), L"Expected default configuration to be ADCSingleEndedCh0");
 		}
 
 		TEST_METHOD(TestInitializeMCP3008DriverAsDifferentialCh2PosCh3Neg)
 		{
 			drv = new Mcp3008Driver();
-			drv->ConfigureAudioDriver(AudioDriverConfig::ADCDifferentialCh2PosCh3Neg);
-			Assert::AreEqual((int)AudioDriverConfig::ADCDifferentialCh2PosCh3Neg, (int)drv->GetAudioDriverConfiguration(), L"Expected Differential Ch2+Ch3- configuration");
+			drv->ConfigureADC(ADCConfig::ADCDifferentialCh2PosCh3Neg);
+			Assert::AreEqual((int)ADCConfig::ADCDifferentialCh2PosCh3Neg, (int)drv->GetADCConfiguration(), L"Expected Differential Ch2+Ch3- configuration");
 		}
 
 	};
